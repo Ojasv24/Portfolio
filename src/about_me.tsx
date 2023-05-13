@@ -10,7 +10,7 @@ import mongo_svg from "./assets/mongo.svg";
 
 const AboutME = () => {
   return (
-    <div className="flex flex-col  bg-black items-center p-20 max-sm:content-start max-sm:px-2 max-sm:items-start">
+    <div className="flex flex-col  items-center bg-black p-20 max-md:px-10 max-sm:content-start max-sm:items-start max-sm:px-2">
       <div className="bg-gradient-to-br from-purple3 to-purple1 bg-clip-text pb-4 text-6xl font-bold text-transparent max-sm:text-3xl">
         About ME
       </div>

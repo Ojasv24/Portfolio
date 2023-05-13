@@ -1,8 +1,14 @@
 import { TypeAnimation } from "react-type-animation";
 import logo from "./assets/ORnew.png";
+import useIsVisible from "./utils/useFadeIn";
+import useOnScreen from "./utils/useOnScreen";
+import { useRef } from "react";
+
 const MainPage = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isVisible = useOnScreen(ref, false);
   return (
-    <div className=" bg-Background ">
+    <div className=" bg-Background w-full">
       <div className="flex justify-center p-20 max-lg:flex-col-reverse max-lg:p-10 max-sm:flex-col-reverse max-sm:p-2 ">
         <div className="flex flex-col items-start self-center ">
           <div className="text-xl text-white ">Hii, my name is</div>
@@ -10,23 +16,28 @@ const MainPage = () => {
             Ojasv Rathore
           </div>
 
-          <div className="bg-gradient-to-br from-pink to-orange bg-clip-text p-10 pb-4 pl-10  text-4xl font-bold text-transparent max-sm:p-2 max-sm:text-xl">
+          <div
+            ref={ref as any}
+            className=" bg-gradient-to-br from-pink to-orange bg-clip-text p-10 pb-4 pl-10  text-4xl font-bold text-transparent max-sm:p-2 max-sm:text-xl"
+          >
             I make{" "}
-            <TypeAnimation
-              sequence={[
-                "Flutter Apps",
-                1000,
-                "Degin for Apps",
-                1000,
-                "Python Scripts",
-                1000,
-                "Degin for web",
-                1000,
-              ]}
-              wrapper="span"
-              cursor={true}
-              repeat={Infinity}
-            />
+            {isVisible && (
+              <TypeAnimation
+                sequence={[
+                  "Flutter Apps",
+                  2000,
+                  "Degin for Apps",
+                  2000,
+                  "Python Scripts",
+                  2000,
+                  "Degin for web",
+                  2000,
+                ]}
+                wrapper="span"
+                cursor={true}
+                repeat={Infinity}
+              />
+            )}
           </div>
 
           <div className="mt-10 text-center text-xl text-white max-sm:text-start max-sm:text-sm">
@@ -46,7 +57,7 @@ const MainPage = () => {
             />
           </div>
         </div> */}
-        <div className="group relative flex-shrink-0 self-center rounded-full bg-white ">
+        <div className="group relative flex-shrink-0 self-center rounded-full ">
           <img
             className="max-sm:w-94 h-128 w-128 object-scale-down max-lg:h-80 max-lg:w-80 max-sm:h-80"
             style={{

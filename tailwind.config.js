@@ -7,6 +7,9 @@ export default {
   ],
   darkMode: 'class',
   theme: {
+    fontFamily: {
+      sans: ['Krub'],
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
@@ -27,12 +30,18 @@ export default {
     },
     extend: {
       animation: {
-        fadeIn: "fadeIn 2s ease-in forwards"
+        fadeIn: "fadeIn 2s ease-in forwards",
+        tilt: 'tilt 10s infinite linear',
       },
       keyframes: {
         fadeIn: {
           "0%": { opacity: 0 },
           "100%": { opacity: 1 }
+        },
+        tilt: {
+          '0%, 50%, 100%': { transform: 'rotate(0deg)' },
+          '25%': { transform: 'rotate(1deg)' },
+          '75%': { transform: 'rotate(-1deg)' },
         }
       },
       height: {
