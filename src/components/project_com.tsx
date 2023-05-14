@@ -6,7 +6,9 @@ interface Props {
   projectDescription: string[];
   techIcons: string[];
   sourceIcons: string[];
-  sizes: string[];
+  sourceLinks: string[];
+  techIconsSize: string[];
+  sourceIconsSize: string[];
   reverse?: boolean;
 }
 
@@ -34,7 +36,7 @@ function Project(props: Props) {
         <div className="flex text-5xl font-bold text-white max-lg:mt-10 max-sm:text-2xl">
           {props.name}
         </div>
-        <ul className=" list-disc p-3 pl-10 text-lg text-white font-medium max-sm:py-2 max-sm:px-4 max-sm:text-lg  ">
+        <ul className=" list-disc p-3 pl-10 text-lg font-medium text-white max-sm:px-4 max-sm:py-2 max-sm:text-lg  ">
           {props.projectDescription.map((desc, _) => (
             <li>{desc}</li>
           ))}
@@ -45,7 +47,7 @@ function Project(props: Props) {
             <img
               key={index}
               className={
-                props.sizes[index] + " mb-2 mr-2 max-sm:h-6 max-sm:w-6"
+                props.techIconsSize[index] + " mb-2 mr-2 max-sm:h-6 max-sm:w-6"
               }
               src={svg}
               alt=""
@@ -54,16 +56,17 @@ function Project(props: Props) {
         </div>
         <div className="flex flex-wrap pt-4 ">
           {props.sourceIcons.map((svg, index) => (
-            <button>
+            <a href={props.sourceLinks[index]}>
               <img
                 key={index}
                 className={
-                  props.sizes[index] + " mb-2 mr-2 max-sm:h-6 max-sm:w-6"
+                  props.sourceIconsSize[index] +
+                  " mb-2 mr-2 hover:cursor-pointer max-sm:h-6 max-sm:w-6"
                 }
                 src={svg}
                 alt=""
               />
-            </button>
+            </a>
           ))}
         </div>
       </div>

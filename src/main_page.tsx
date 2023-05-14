@@ -1,8 +1,11 @@
 import { TypeAnimation } from "react-type-animation";
 import logo from "./assets/ORnew.png";
+import logo2 from "./assets/ORnew copy.png";
+import logo3 from "./assets/OR.png";
 import useOnScreen from "./utils/useOnScreen";
 import { useRef } from "react";
-  
+import bg_or from "./assets/background_or.svg";
+
 const MainPage = () => {
   const ref = useRef<HTMLDivElement>(null);
   const isVisible = useOnScreen(ref, false);
@@ -46,23 +49,12 @@ const MainPage = () => {
             looking for opportunities for an SDE role.
           </div>
         </div>
-        {/* <div className="group relative flex-shrink-0">
-          <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-purple1 from-50% to-purple2 bg-[size:_200%]   bg-[position:_-0%_-0%] blur-2xl transition-all duration-500 group-hover:to-90% group-hover:bg-[position:_100%_5000%] "></div>
-          <div className=" relative flex-shrink-0 max-lg:self-center max-sm:self-center">
-            <img
-              className="w-128 max-sm:w-94 h-128 object-scale-down max-lg:h-80 max-lg:w-80 max-sm:h-80"
-              src={logo}
-              alt=""
-            />
-          </div>
-        </div> */}
-        <div className="group relative flex-shrink-0 self-center rounded-full ">
+
+        <div className="relative flex-shrink-0 self-center rounded-full p-10 ">
+          <img className="absolute h-110 max-lg:hidden" src={bg_or}></img>
           <img
-            className="max-sm:w-94 h-128 w-128 object-scale-down max-lg:h-80 max-lg:w-80 max-sm:h-80"
-            style={{
-              padding: "-32px",
-            }}
-            src={logo}
+            className="relative ml-4 mt-4 h-96 self-center object-scale-down max-lg:h-80 max-sm:max-h-52"
+            src={logo3}
             alt=""
           />
         </div>
