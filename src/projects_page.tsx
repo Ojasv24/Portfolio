@@ -11,6 +11,10 @@ import python_svg from "./assets/python_white.svg";
 import pygame_svg from "./assets/pygmae.svg";
 import pymuch_svg from "./assets/pymuck.svg";
 import nlp_svg from "./assets/Nlp.svg";
+import uno_game from "./assets/uno_game.png";
+import punchy_earth from "./assets/puncyearth.png";
+import chat_app from "./assets/chatapp.png";
+import atv from "./assets/atv.png";
 
 const ProjectPage = () => {
   return (
@@ -34,6 +38,7 @@ const ProjectPage = () => {
           ]}
           techIconsSize={["h-8 w-8", "h-8 w-8", "h-8 w-14"]}
           sourceIconsSize={["h-8 w-8", "h-8 w-8"]}
+          image={uno_game}
         />
         <Project
           name="Punchy Earth a Python Game"
@@ -51,6 +56,7 @@ const ProjectPage = () => {
           techIconsSize={["h-8 w-8", "w-16", "w-16"]}
           sourceIconsSize={["h-8 w-8", "h-8 w-10"]}
           reverse={true}
+          image={punchy_earth}
         />
         <Project
           name="Chat App"
@@ -64,6 +70,7 @@ const ProjectPage = () => {
           sourceLinks={["https://github.com/Ojasv24/ChatApp"]}
           techIconsSize={["h-8 w-8", "h-8 w-8", "h-8 w-14"]}
           sourceIconsSize={["h-8 w-8"]}
+          image={chat_app}
         />
         <Project
           name="Article to Video Converter"
@@ -78,6 +85,7 @@ const ProjectPage = () => {
           techIconsSize={["h-8 w-8", "w-16"]}
           sourceIconsSize={["h-8 w-8"]}
           reverse={true}
+          image={atv}
         />
       </div>
     </div>

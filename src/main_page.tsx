@@ -1,6 +1,4 @@
 import { TypeAnimation } from "react-type-animation";
-import logo from "./assets/ORnew.png";
-import logo2 from "./assets/ORnew copy.png";
 import logo3 from "./assets/OR.png";
 import useOnScreen from "./utils/useOnScreen";
 import { useRef } from "react";

@@ -1,4 +1,3 @@
-import test_image from "../assets/test_image.png";
 import useIsVisible from "../utils/useFadeIn";
 
 interface Props {
@@ -9,6 +8,7 @@ interface Props {
   sourceLinks: string[];
   techIconsSize: string[];
   sourceIconsSize: string[];
+  image: string;
   reverse?: boolean;
 }
 
@@ -81,7 +81,7 @@ function Project(props: Props) {
         <div className="group relative max-w-7xl self-start">
           <div className="absolute -inset-0.5 animate-tilt rounded-4xl bg-gradient-to-r from-purple1 to-pink opacity-70 blur transition-all duration-500 group-hover:-inset-3 group-hover:opacity-100"></div>
 
-          <img className="relative rounded-4xl shadow-lg " src={test_image} />
+          <img className="relative rounded-4xl shadow-lg " src={props.image} />
         </div>
       </div>
     </div>

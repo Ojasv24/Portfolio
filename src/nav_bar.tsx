@@ -37,9 +37,12 @@ const NavBar = () => {
           className="mr-2 flex h-10 justify-between self-center rounded-3xl bg-gradient-to-r 
                  from-purple1 via-purple2 to-purple2 bg-[size:_200%] bg-[position:_0%_0%] px-4 font-bold text-white transition-all duration-500 hover:bg-[position:_100%_100%] "
         >
-          <div className="self-center pr-2 ">
+          <a
+            href="https://drive.google.com/file/d/19yXMK61rINxngp4xNSZKemH2oBnHh-Ok/view?usp=sharing"
+            className="self-center pr-2 "
+          >
             <img src={resume} alt="" />
-          </div>
+          </a>
           <span className="self-center p-0 max-sm:hidden max-sm:w-0 ">
             Resume
           </span>
