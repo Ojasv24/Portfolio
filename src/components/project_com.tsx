@@ -34,7 +34,7 @@ function Project(props: Props) {
         <div className="flex text-5xl font-bold text-white max-lg:mt-10 max-sm:text-2xl">
           {props.name}
         </div>
-        <ul className=" list-disc p-3 pl-10 text-lg text-white max-sm:p-0 max-sm:py-2 max-sm:text-lg  ">
+        <ul className=" list-disc p-3 pl-10 text-lg text-white font-medium max-sm:py-2 max-sm:px-4 max-sm:text-lg  ">
           {props.projectDescription.map((desc, _) => (
             <li>{desc}</li>
           ))}

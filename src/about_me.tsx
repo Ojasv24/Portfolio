@@ -7,13 +7,13 @@ import go_svg from "./assets/go.svg";
 import web_svg from "./assets/web.svg";
 import firebase_svg from "./assets/firebase.svg";
 import mongo_svg from "./assets/mongo.svg";
+import Heading from "./components/heading";
 
 const AboutME = () => {
   return (
     <div className="flex flex-col  items-center bg-black p-20 max-md:px-10 max-sm:content-start max-sm:items-start max-sm:px-2">
-      <div className="bg-gradient-to-br from-purple3 to-purple1 bg-clip-text pb-4 text-6xl font-bold text-transparent max-sm:text-3xl">
-        About ME
-      </div>
+    
+      <Heading title="About ME" />
       <div className="text-xl text-white max-sm:text-base">
         Hello! My name is Ojasv and I enjoy creating things that live on the
         internet. My interest in web development started in 2020 when I decided

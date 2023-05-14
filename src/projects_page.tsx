@@ -4,15 +4,14 @@ import react_white from "./assets/react_svg_white.svg";
 import go_white from "./assets/go_svg_white.svg";
 import gitbhut_svg_purple from "./assets/gitbhut_svg_purple.svg";
 import line_svg from "./assets/lini_svg_purple.svg";
+import Heading from "./components/heading";
 
 const ProjectPage = () => {
   return (
     // <div></div>
-    
+
     <div className="flex flex-col bg-Background px-20 py-10 max-md:px-10 max-sm:items-start max-sm:px-2">
-      <div className="bg-gradient-to-br from-pink to-black2 bg-clip-text pb-4 text-center text-6xl font-bold text-transparent max-sm:text-start max-sm:text-3xl">
-        Some of the Project I have made
-      </div>
+      <Heading title="Some of the Project I have made" />
       <div className="mt-5 flex flex-col space-y-10">
         <Project
           name="Multiplayer UNO Game"

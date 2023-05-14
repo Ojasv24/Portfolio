@@ -11,11 +11,19 @@ function App() {
     <>
       <div className="fex">
         <NavBar />
-        <MainPage />
-        <AboutME />
-        <ProjectPage />
-        <ExtraProjectPage />
-        <ContactPage />
+        <section id="1">
+          <MainPage />
+        </section>
+        <section id="2">
+          <AboutME />
+        </section>
+        <section id="3">
+          <ProjectPage />
+          <ExtraProjectPage />
+        </section>
+        <section id="4">
+          <ContactPage />
+        </section>
         <CopyRight />
       </div>
     </>
