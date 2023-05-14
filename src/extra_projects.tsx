@@ -13,17 +13,21 @@ const ExtraProjectPage = () => {
   return (
     <div className="flex flex-col items-center bg-Background px-20 max-sm:p-0">
       <button
-        className="mb-4 flex space-x-2 rounded-xl border-4 border-purple1 p-2"
+        className="mb-4 flex space-x-2 rounded-xl border-4 border-purple1 p-2 max-sm:border-2"
         onClick={() => showMore(!show)}
       >
-        <div className="self-center  text-xl font-bold text-white">
+        <div className="self-center  text-xl font-bold text-white max-sm:text-lg">
           {show ? "Show less" : "Show more"}
         </div>
-        <img className="animate-bounce" src={!show ? downArrow : upArrow} alt="" />
+        <img
+          className="animate-bounce max-sm:h-6 max-sm:w-6"
+          src={!show ? downArrow : upArrow}
+          alt=""
+        />
       </button>
       <div className="py-10">
         {show ? (
-          <div className="flex justify-center flex-wrap gap-2  bg-Background">
+          <div className="flex flex-wrap justify-center gap-2  bg-Background">
             <ExtraProject
               name=""
               projectDescription={[]}

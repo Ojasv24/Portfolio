@@ -1,14 +1,13 @@
 import { TypeAnimation } from "react-type-animation";
 import logo from "./assets/ORnew.png";
-import useIsVisible from "./utils/useFadeIn";
 import useOnScreen from "./utils/useOnScreen";
 import { useRef } from "react";
-
+  
 const MainPage = () => {
   const ref = useRef<HTMLDivElement>(null);
   const isVisible = useOnScreen(ref, false);
   return (
-    <div className=" bg-Background w-full">
+    <div className=" w-full bg-Background">
       <div className="flex justify-center p-20 max-lg:flex-col-reverse max-lg:p-10 max-sm:flex-col-reverse max-sm:p-2 ">
         <div className="flex flex-col items-start self-center ">
           <div className="text-xl text-white ">Hii, my name is</div>

@@ -1,5 +1,7 @@
 import "./App.css";
 import AboutME from "./about_me";
+import ContactPage from "./contact_me";
+import CopyRight from "./copyright";
 import ExtraProjectPage from "./extra_projects";
 import MainPage from "./main_page";
 import NavBar from "./nav_bar";
@@ -13,6 +15,8 @@ function App() {
         <AboutME />
         <ProjectPage />
         <ExtraProjectPage />
+        <ContactPage />
+        <CopyRight />
       </div>
     </>
   );
