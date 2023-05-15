@@ -9,22 +9,24 @@ import ProjectPage from "./projects_page";
 function App() {
   return (
     <>
-      <div className="fex">
+      <div className="">
         <NavBar />
         <section id="1">
           <MainPage />
         </section>
-        <section id="2">
-          <AboutME />
-        </section>
-        <section id="3">
-          <ProjectPage />
-          <ExtraProjectPage />
-        </section>
-        <section id="4">
-          <ContactPage />
-        </section>
-        <CopyRight />
+        <div className="overflow-x-auto">
+          <section id="2">
+            <AboutME />
+          </section>
+          <section id="3">
+            <ProjectPage />
+            <ExtraProjectPage />
+          </section>
+          <section id="4">
+            <ContactPage />
+          </section>
+          <CopyRight />
+        </div>
       </div>
     </>
   );

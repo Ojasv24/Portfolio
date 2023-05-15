@@ -33,11 +33,21 @@ export default {
       animation: {
         fadeIn: "fadeIn 2s ease-in forwards",
         tilt: 'tilt 10s infinite linear',
+        rightslide: 'rightslide 0.5s ease-in-out forwards',
+        leftslide: 'leftslide 0.5s ease-in-out forwards',
       },
       keyframes: {
         fadeIn: {
           "0%": { opacity: 0 },
           "100%": { opacity: 1 }
+        },
+        rightslide: {
+          "0%": { transform: 'translateX(100%)' },
+          "100%": { transform: 'translateX(0%)' }
+        },
+        leftslide: {
+          "0%": { transform: 'translateX(-100%)' },
+          "100%": { transform: 'translateX(0%)' }
         },
         tilt: {
           '0%, 50%, 100%': { transform: 'rotate(0deg)' },

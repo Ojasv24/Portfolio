@@ -25,13 +25,13 @@ const MainPage = () => {
               <TypeAnimation
                 sequence={[
                   "Flutter Apps",
-                  2000,
+                  1000,
                   "Desgin for Apps",
-                  2000,
+                  1000,
                   "Desgin for web",
-                  2000,
+                  1000,
                   "Python Scripts",
-                  2000,
+                  1000,
                 ]}
                 wrapper="span"
                 cursor={true}

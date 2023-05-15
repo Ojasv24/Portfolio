@@ -8,19 +8,22 @@ import web_svg from "./assets/web.svg";
 import firebase_svg from "./assets/firebase.svg";
 import mongo_svg from "./assets/mongo.svg";
 import Heading from "./components/heading";
+import grapql from "./assets/graphql.svg";
+import flask from "./assets/flask.svg";
 
 const AboutME = () => {
   return (
     <div className="flex flex-col  items-center bg-black p-20 max-md:px-10 max-sm:content-start max-sm:items-start max-sm:px-2">
       <Heading title="About ME" />
       <div className="text-xl text-white max-sm:text-base">
-        Hi, my name is Ojasv Rathore and I am a passionate Flutter developer
-        with a keen interest in chess, AI, and space exploration. I am skilled
-        in building Python scripts to automate tedious tasks and enjoy exploring
-        the world of hacking.My focus is on creating functional and visually
-        appealing apps while pushing the limits of what's possible in tech.
+        I'm Ojasv Rathore, a full-stack developer with a passion for chess, AI,
+        and space exploration. I automate tasks with Python scripts and also
+        have an interest in hacking. I enjoy creating functional and visually
+        appealing apps, with Flutter being one of my preferred frameworks. I'm
+        constantly pushing the boundaries of technology to deliver innovative
+        solutions.
       </div>
-      <div className="mt-10 text-center text-3xl text-purple4 max-sm:text-lg max-sm:font-semibold font-semibold">
+      <div className="mt-10 text-center text-3xl font-semibold text-purple4 max-sm:text-lg max-sm:font-semibold">
         Here are a few technologies I’ve been working
       </div>
       <div className="flex flex-wrap justify-center gap-2 p-5">
@@ -30,6 +33,8 @@ const AboutME = () => {
         <Skills name="Python" icon={python_svg} size="" />
         <Skills name="Go" icon={go_svg} size="mt-3 " />
         <Skills name="HTML CSS JavaScript" icon={web_svg} size="" />
+        <Skills name="GraphQL" icon={grapql} size="" />
+        <Skills name="Flask" icon={flask} size="h-8 w-1" />
         <Skills name="Firebase" icon={firebase_svg} size="h-8 w-10 " />
         <Skills name="MongoDB" icon={mongo_svg} size="h-8 w-10 " />
       </div>

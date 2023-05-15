@@ -12,7 +12,7 @@ export default function useOnScreen(
         (onlyOnce ? entry.isIntersecting : true) &&
           setIntersecting(entry.isIntersecting);
       }),
-    []
+    [isIntersecting]
   );
 
   useEffect(() => {

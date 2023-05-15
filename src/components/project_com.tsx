@@ -14,21 +14,21 @@ interface Props {
 
 function Project(props: Props) {
   const { ref, isVisible } = useIsVisible(true);
-  const hClass = !props.reverse
-    ? isVisible
-      ? " translate-x-0 opacity-100 "
-      : " translate-x-full opacity-0 h-0 w-0"
-    : isVisible
-    ? " translate-x-0 opacity-100 "
-    : " -translate-x-full opacity-0 h-0 w-0";
 
+  const hClass = isVisible
+    ? !props.reverse
+      ? " animate-rightslide"
+      : " animate-leftslide"
+    : "invisible";
+
+  // const hClass = isVisible ? " " : "invisible";
   const makeReverse = props.reverse ? " flex-row-reverse" : " flex-row";
   const leftPadding = props.reverse ? " pr-10 " : " pl-10 ";
   console.log("hClass", hClass + " " + props.name);
   return (
     <div
       className={
-        "flex justify-center rounded-4xl  p-10 px-4 max-lg:flex-col-reverse max-md:items-start max-sm:p-0 " +
+        "flex justify-center rounded-4xl p-10 px-4 max-lg:flex-col-reverse max-md:items-start max-sm:p-0 " +
         makeReverse
       }
       ref={ref as any}
@@ -62,7 +62,7 @@ function Project(props: Props) {
                 key={index}
                 className={
                   props.sourceIconsSize[index] +
-                  " mb-2 mr-2 hover:cursor-pointer max-sm:h-6 max-sm:w-6"
+                  " mb-2 mr-2  hover:cursor-pointer max-sm:h-6 max-sm:w-6"
                 }
                 src={svg}
                 alt=""
@@ -74,7 +74,7 @@ function Project(props: Props) {
 
       <div
         className={
-          " relative flex h-auto max-w-4xl transition duration-200 ease-in-out max-lg:p-0 " +
+          " relative flex h-auto max-w-4xl ease-in-out max-lg:p-0 " +
           hClass +
           leftPadding
         }
@@ -84,6 +84,7 @@ function Project(props: Props) {
 
           <img className="relative rounded-4xl shadow-lg " src={props.image} />
         </div>
+        7y``
       </div>
     </div>
   );
