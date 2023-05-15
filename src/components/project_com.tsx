@@ -17,13 +17,14 @@ function Project(props: Props) {
   const hClass = !props.reverse
     ? isVisible
       ? " translate-x-0 opacity-100 "
-      : " translate-x-full opacity-0 "
+      : " translate-x-full opacity-0 h-0 w-0"
     : isVisible
-    ? " -translate-x-0 opacity-100 "
-    : " -translate-x-full opacity-0 ";
+    ? " translate-x-0 opacity-100 "
+    : " -translate-x-full opacity-0 h-0 w-0";
 
-  const makeReverse = props.reverse ? "flex-row-reverse" : "flex-row";
+  const makeReverse = props.reverse ? " flex-row-reverse" : " flex-row";
   const leftPadding = props.reverse ? " pr-10 " : " pl-10 ";
+  console.log("hClass", hClass + " " + props.name);
   return (
     <div
       className={
@@ -73,7 +74,7 @@ function Project(props: Props) {
 
       <div
         className={
-          " relative flex h-auto max-w-4xl transition duration-500 ease-in-out max-lg:p-0 " +
+          " relative flex h-auto max-w-4xl transition duration-200 ease-in-out max-lg:p-0 " +
           hClass +
           leftPadding
         }

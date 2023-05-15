@@ -12,17 +12,16 @@ import Heading from "./components/heading";
 const AboutME = () => {
   return (
     <div className="flex flex-col  items-center bg-black p-20 max-md:px-10 max-sm:content-start max-sm:items-start max-sm:px-2">
-    
       <Heading title="About ME" />
       <div className="text-xl text-white max-sm:text-base">
-        Hello! My name is Ojasv and I enjoy creating things that live on the
-        internet. My interest in web development started in 2020 when I decided
-        to take part in the development field and seeing an attractive website
-        made me more enthusiastic about web - development then I started
-        learning a lot about HTML & CSS!
+        Hi, my name is Ojasv Rathore and I am a passionate Flutter developer
+        with a keen interest in chess, AI, and space exploration. I am skilled
+        in building Python scripts to automate tedious tasks and enjoy exploring
+        the world of hacking.My focus is on creating functional and visually
+        appealing apps while pushing the limits of what's possible in tech.
       </div>
-      <div className="mt-10 text-center text-xl text-white max-sm:text-base">
-        Here are a few technologies I’ve been working with recently
+      <div className="mt-10 text-center text-3xl text-purple4 max-sm:text-lg max-sm:font-semibold font-semibold">
+        Here are a few technologies I’ve been working
       </div>
       <div className="flex flex-wrap justify-center gap-2 p-5">
         <Skills name="Flutter" icon={flutter_svg} size="pr-1 " />

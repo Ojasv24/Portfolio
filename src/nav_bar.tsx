@@ -7,7 +7,7 @@ import NavBarButton from "./components/nav_bar_button_com";
 const NavBar = () => {
   const [show, showMenu] = useState(false);
   return (
-    <div className="bg-black">
+    <div className="bg-black sticky top-0 z-10">
       {/* Nav Bar */}
       <div className="space-x-33 mx-20 flex h-20 justify-around max-sm:mx-0">
         <div className="flex flex-1">
@@ -26,7 +26,7 @@ const NavBar = () => {
           <img className="h-8 w-6" src={hamberger} alt="" />
         </button>
         {/* Nav Links */}
-        <div className="flex space-x-8 self-center pr-4 text-white max-md:hidden">
+        <div className="flex space-x-8 self-center pr-4 text-white max-md:hidden max-lg:ml-20">
           <NavBarButton id="1" name="Home" size="" />
           <NavBarButton id="2" name="About" size="" />
           <NavBarButton id="3" name="Project" size="" />

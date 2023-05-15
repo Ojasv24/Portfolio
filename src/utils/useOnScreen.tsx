@@ -12,13 +12,14 @@ export default function useOnScreen(
         (onlyOnce ? entry.isIntersecting : true) &&
           setIntersecting(entry.isIntersecting);
       }),
-    [onlyOnce]
+    []
   );
 
   useEffect(() => {
     observer.observe(ref.current!);
+
     return () => observer.disconnect();
-  }, []);
+  }, [observer, ref.current]); // Added ref.current as a dependency
 
   return isIntersecting;
 }

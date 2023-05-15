@@ -21,6 +21,7 @@ export default {
       purple1: '#9C12DC',
       purple2: '#300566',
       purple3: '#B41992',
+      purple4: '#DD94FF',
       blue: '#eae9ee',
       gray: "#9CA3AF",
       gray2: "#1E1E1E",
@@ -67,8 +68,10 @@ export default {
     },
   },
   plugins: [
+    require('tailwind-scrollbar')({ nocompatible: true }),
   ],
   variants: {
-    animation: ["motion-safe"]
+    animation: ["motion-safe"],
+    scrollbar: ['rounded'],
   },
 }

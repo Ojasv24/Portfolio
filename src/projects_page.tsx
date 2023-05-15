@@ -21,7 +21,7 @@ const ProjectPage = () => {
     // <div></div>
 
     <div className="flex flex-col bg-Background px-20 py-10 max-md:px-10 max-sm:items-start max-sm:px-2">
-      <Heading title="Some of the Project I have made" />
+      <Heading title="Some of the Projects I have made" />
       <div className="mt-5 flex flex-col space-y-10">
         <Project
           name="Multiplayer UNO Game"
@@ -55,8 +55,8 @@ const ProjectPage = () => {
           ]}
           techIconsSize={["h-8 w-8", "w-16", "w-16"]}
           sourceIconsSize={["h-8 w-8", "h-8 w-10"]}
-          reverse={true}
           image={punchy_earth}
+          reverse={true}
         />
         <Project
           name="Chat App"
@@ -84,8 +84,8 @@ const ProjectPage = () => {
           ]}
           techIconsSize={["h-8 w-8", "w-16"]}
           sourceIconsSize={["h-8 w-8"]}
-          reverse={true}
           image={atv}
+          reverse={true}
         />
       </div>
     </div>

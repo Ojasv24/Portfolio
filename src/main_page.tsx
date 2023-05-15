@@ -26,11 +26,11 @@ const MainPage = () => {
                 sequence={[
                   "Flutter Apps",
                   2000,
-                  "Degin for Apps",
+                  "Desgin for Apps",
+                  2000,
+                  "Desgin for web",
                   2000,
                   "Python Scripts",
-                  2000,
-                  "Degin for web",
                   2000,
                 ]}
                 wrapper="span"
@@ -40,11 +40,13 @@ const MainPage = () => {
             )}
           </div>
 
-          <div className="mt-10 text-center text-xl text-white max-sm:text-start max-sm:text-sm">
-            I’m a computer science and engineering student specializing in
-            building (and occasionally designing) exceptional digital
-            experiences. Currently, I’m focused on my B.E at BUIT Bhopal and
-            looking for opportunities for an SDE role.
+          <div className="mt-10 text-center text-xl text-white max-sm:text-start max-sm:text-base">
+            Welcome to my portfolio! I am a Computer Science Engineering student
+            specializing in app development. Currently pursuing my studies at
+            BUIT Bhopal, I have a strong passion for pushing the
+            boundaries of technology. I am actively seeking opportunities as a
+            Software Development Engineer (SDE) to further enhance my skills and
+            contribute to the tech industry.
           </div>
         </div>
 

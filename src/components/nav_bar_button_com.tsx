@@ -7,7 +7,7 @@ interface Props {
 const NavBarButton = (props: Props) => {
   return (
     <a href={"#" + props.id} className=' p-1 rounded-2xl'>
-      <div className="text-xl font-bold text-white max-sm:text-xl hover:text-purple1 ">
+      <div className="transition-all duration-500 text-xl font-bold text-white max-sm:text-xl hover:text-purple1 ">
         {props.name}
       </div>
     </a>
