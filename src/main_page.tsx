@@ -43,9 +43,9 @@ const MainPage = () => {
           <div className="mt-10 text-center text-xl text-white max-sm:text-start max-sm:text-base">
             Welcome to my portfolio! I am a Computer Science Engineering student
             specializing in app development. Currently pursuing my studies at
-            BUIT Bhopal, I have a strong passion for pushing the
-            boundaries of technology. I am actively seeking opportunities as a
-            Software Development Engineer (SDE) to further enhance my skills and
+            BUIT Bhopal, I have a strong passion for pushing the boundaries of
+            technology. I am actively seeking opportunities as a Software
+            Development Engineer (SDE) to further enhance my skills and
             contribute to the tech industry.
           </div>
         </div>
