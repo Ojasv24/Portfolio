@@ -1,4 +1,5 @@
 import Project from "./components/project_com";
+import AnimatedHeading from "./components/animated_heading";
 import flutter_white from "./assets/flutter_svg_white.svg";
 import react_white from "./assets/react_svg_white.svg";
 import go_white from "./assets/go_svg_white.svg";
@@ -18,10 +19,7 @@ import atv from "./assets/atv.png";
 const ProjectPage = () => {
   return (
     <div className="flex flex-col bg-Background px-6 py-20 max-md:px-4 max-sm:px-3">
-      <div className="pb-4 text-center text-6xl font-bold max-sm:text-3xl">
-        <span className="text-white">Projects </span>
-        <span className="bg-gradient-to-br from-purple3 to-purple1 bg-clip-text text-transparent">I've Built</span>
-      </div>
+      <AnimatedHeading title="Projects I've Built" firstWordWhite />
 
       {/* Project Cards */}
       <div className="mt-8 flex flex-col gap-16 max-w-6xl mx-auto w-full">

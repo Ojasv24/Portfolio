@@ -6,5 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: true
-  }
+  },
+  optimizeDeps: {
+    force: true,  // Force re-bundle deps (needed after React 18 → 19 upgrade)
+  },
 })

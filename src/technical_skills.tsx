@@ -33,7 +33,7 @@ import {
 } from "react-icons/fa";
 import { VscServerProcess } from "react-icons/vsc";
 import type { IconType } from "react-icons";
-import Heading from "./components/heading";
+import AnimatedHeading from "./components/animated_heading";
 
 interface SkillItem {
     name: string;
@@ -47,11 +47,12 @@ interface SkillCategory {
     skills: SkillItem[];
 }
 
-const SectionDivider = () => (
+const _SectionDivider = () => (
     <div className="flex items-center justify-center py-2">
         <div className="h-px w-full bg-gradient-to-r from-transparent via-purple1 to-transparent opacity-30" />
     </div>
 );
+void _SectionDivider;
 
 const TechnicalSkills = () => {
     const skillCategories: SkillCategory[] = [
@@ -118,11 +119,11 @@ const TechnicalSkills = () => {
         <div className="bg-black">
             <div className="px-20 pb-16 pt-10 max-md:px-10 max-sm:px-4">
                 <div className="flex justify-center">
-                    <Heading title="Technical Skills" />
+                    <AnimatedHeading title="Technical Skills" invertColors />
                 </div>
 
                 <div className="mt-10 grid grid-cols-2 gap-6 max-lg:grid-cols-1">
-                    {skillCategories.map((category, catIdx) => (
+                    {skillCategories.map((category, _catIdx) => (
                         <div
                             key={category.title}
                             className="group relative overflow-hidden rounded-3xl border border-gray2 bg-gray2 p-6 transition-all duration-500 hover:border-purple1 hover:shadow-lg hover:shadow-purple1/10 max-sm:p-4"

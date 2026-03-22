@@ -1,12 +1,12 @@
 import ExperienceCard from "./components/experience_com";
-import Heading from "./components/heading";
+import AnimatedHeading from "./components/animated_heading";
 import swiggyLogo from "./assets/Swiggy_logo.svg";
 import mpsedcLogo from "./assets/mpsedc.png";
 
 const ExperiencePage = () => {
     return (
         <div className="flex flex-col items-center bg-Background px-20 py-10 max-md:px-10 max-sm:px-2">
-            <Heading title="Experience" />
+            <AnimatedHeading title="Experience" />
             <div className="mt-8 flex w-full flex-col">
                 <ExperienceCard
                     role="Software Development Engineer"

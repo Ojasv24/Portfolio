@@ -1,8 +1,9 @@
 import gmail from "./assets//gmail_purple_svg.svg";
 import linkdin from "./assets/linkdind_purple_svg.svg";
 import github from "./assets/gitbhut_svg_purple.svg";
-import twitter from "./assets/twitter_purple_svg.svg";
+import xIcon from "./assets/x_purple_svg.svg";
 import useIsVisible from "./utils/useFadeIn";
+import AnimatedHeading from "./components/animated_heading";
 
 const socials = [
   {
@@ -18,7 +19,7 @@ const socials = [
     color: "hover:border-white/50 hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]",
   },
   {
-    icon: twitter,
+    icon: xIcon,
     link: "https://x.com/home",
     label: "X",
     color: "hover:border-white/50 hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]",
@@ -44,10 +45,7 @@ const ContactPage = () => {
           <p className="mb-3 text-sm font-medium uppercase tracking-[0.3em] text-purple4/70">
             Get in Touch
           </p>
-          <h2 className="bg-gradient-to-r from-white via-purple4 to-purple1 bg-clip-text text-5xl font-bold text-transparent max-sm:text-3xl">
-            Contact Me
-          </h2>
-          <div className="mx-auto mt-4 h-[2px] w-16 rounded-full bg-gradient-to-r from-purple1 to-purple3" />
+          <AnimatedHeading title="Contact Me" invertColors />
         </div>
 
         {/* Email Card */}

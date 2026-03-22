@@ -5,3 +5,53 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* ── Conic gradient utility ───────────────────────────────── */
+.bg-gradient-conic {
+  background-image: conic-gradient(var(--tw-gradient-stops));
+}
+
+/* ── Hero heading shimmer ─────────────────────────────────── */
+.hero-heading {
+  background-size: 200% auto;
+  animation: heroShimmer 2s ease-out forwards;
+}
+
+@keyframes heroShimmer {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* ── Typed cursor blink color override ────────────────────── */
+.type-animation-cursor::after {
+  color: #DD94FF !important;
+}
+
+/* ── Smooth bounce for scroll indicator ───────────────────── */
+@keyframes softBounce {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(-50%);
+  }
+
+  50% {
+    transform: translateY(8px) translateX(-50%);
+  }
+}
+
+/* ── Resume button animated gradient border ───────────────── */
+@keyframes borderShimmer {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}

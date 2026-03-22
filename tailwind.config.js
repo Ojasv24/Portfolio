@@ -27,7 +27,7 @@ export default {
       gray2: "#1E1E1E",
       pink: "#B41992",
       orange: "#E17E08",
-
+      green: { 400: "#4ade80" },
     },
     extend: {
       animation: {
