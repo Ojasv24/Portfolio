@@ -110,7 +110,7 @@ const NavBar = () => {
           <div className="flex items-center gap-3">
             {/* Resume Button */}
             <a
-              href="https://drive.google.com/file/d/1DDJyx1e4hZTfJOsL5EJsQhXjRpm2fEvI/view?usp=sharing"
+              href="https://drive.google.com/file/d/1hPxTgx7OJzkKe8BCOe8xkIR_rK2BqpYO/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
               className={`group relative flex items-center gap-2 overflow-hidden rounded-full font-semibold text-white transition-all duration-500 animate-navFadeIn ${scrolled ? "px-4 py-1.5 text-sm" : "px-5 py-2.5"
