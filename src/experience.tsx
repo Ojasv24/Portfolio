@@ -5,9 +5,13 @@ import mpsedcLogo from "./assets/mpsedc.png";
 
 const ExperiencePage = () => {
     return (
-        <div className="flex flex-col items-center bg-Background px-20 py-10 max-md:px-10 max-sm:px-2">
+        <section className="relative overflow-hidden bg-Background px-6 py-16 sm:px-12 md:px-20 lg:px-28">
+            {/* Background ambient glow */}
+            <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-purple1/[0.04] blur-[120px]"></div>
+
             <AnimatedHeading title="Experience" />
-            <div className="mt-8 flex w-full flex-col">
+
+            <div className="relative mx-auto mt-12 flex max-w-4xl flex-col">
                 <ExperienceCard
                     role="Software Development Engineer"
                     company="Swiggy"
@@ -58,7 +62,7 @@ const ExperiencePage = () => {
                     ]}
                 />
             </div>
-        </div>
+        </section>
     );
 };
 

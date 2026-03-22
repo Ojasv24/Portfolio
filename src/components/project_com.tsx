@@ -13,6 +13,27 @@ interface Props {
   index?: number;
 }
 
+/*
+ * Wavy edge clip-paths — the edge facing the content has a flowing S-curve,
+ * the other three sides stay straight with rounded corners.
+ * "right" variants: wavy right edge  (image on left, normal cards)
+ * "left"  variants: wavy left edge   (image on right, reversed cards)
+ */
+const WAVE_PATHS = {
+  // Wavy RIGHT edge — image is on the left
+  right: [
+    // gentle outward bulge then inward dip
+    "M 0,0.03 C 0,0.01 0.01,0 0.03,0 L 0.88,0 C 0.88,0 0.92,0.12 0.94,0.25 C 0.97,0.42 0.88,0.55 0.90,0.7 C 0.92,0.82 0.96,0.92 0.92,1 L 0.03,1 C 0.01,1 0,0.99 0,0.97 Z",
+    // sharper wave
+    "M 0,0.03 C 0,0.01 0.01,0 0.03,0 L 0.90,0 C 0.90,0 0.86,0.18 0.92,0.32 C 0.98,0.46 0.85,0.62 0.88,0.78 C 0.91,0.90 0.88,1 0.88,1 L 0.03,1 C 0.01,1 0,0.99 0,0.97 Z",
+  ],
+  // Wavy LEFT edge — image is on the right (reversed)
+  left: [
+    "M 1,0.03 C 1,0.01 0.99,0 0.97,0 L 0.12,0 C 0.12,0 0.08,0.12 0.06,0.25 C 0.03,0.42 0.12,0.55 0.10,0.7 C 0.08,0.82 0.04,0.92 0.08,1 L 0.97,1 C 0.99,1 1,0.99 1,0.97 Z",
+    "M 1,0.03 C 1,0.01 0.99,0 0.97,0 L 0.10,0 C 0.10,0 0.14,0.18 0.08,0.32 C 0.02,0.46 0.15,0.62 0.12,0.78 C 0.09,0.90 0.12,1 0.12,1 L 0.97,1 C 0.99,1 1,0.99 1,0.97 Z",
+  ],
+};
+
 function Project(props: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -30,6 +51,11 @@ function Project(props: Props) {
   }, []);
 
   const baseDelay = idx * 100;
+  const isReversed = !!props.reverse;
+  const waveSide = isReversed ? "left" : "right";
+  const waveVariant = idx % WAVE_PATHS[waveSide].length;
+  const clipId = `wave-${waveSide}-${waveVariant}`;
+  const wavePath = WAVE_PATHS[waveSide][waveVariant];
 
   return (
     <div
@@ -50,14 +76,24 @@ function Project(props: Props) {
         className={`flex max-lg:flex-col ${props.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
           }`}
       >
-        {/* Image Section */}
+        {/* Image Section — Wavy edge where image meets content */}
         <div
-          className={`lg:w-[48%] overflow-hidden rounded-t-2xl lg:rounded-t-none ${props.reverse ? "lg:rounded-r-2xl" : "lg:rounded-l-2xl"
-            } transition-all duration-700 ease-out ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+          className={`lg:w-[48%] relative transition-all duration-700 ease-out ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
             }`}
           style={{ transitionDelay: `${baseDelay + 150}ms` }}
         >
-          <div className="relative overflow-hidden h-full min-h-[240px]">
+          {/* Inline SVG defs for wavy clip-path */}
+          <svg width="0" height="0" className="absolute" aria-hidden="true">
+            <defs>
+              <clipPath id={clipId} clipPathUnits="objectBoundingBox">
+                <path d={wavePath} />
+              </clipPath>
+            </defs>
+          </svg>
+          <div
+            className="relative overflow-hidden h-full min-h-[240px]"
+            style={{ clipPath: `url(#${clipId})` }}
+          >
             <img
               className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               src={props.image}
@@ -86,14 +122,18 @@ function Project(props: Props) {
                 Project {String(idx + 1).padStart(2, "0")}
               </span>
             </span>
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-2">
               {props.techIcons.map((svg, index) => (
-                <img
+                <div
                   key={index}
-                  className="h-5 w-5 max-sm:h-4 max-sm:w-4 object-contain opacity-50 transition-opacity duration-300 hover:opacity-100"
-                  src={svg}
-                  alt=""
-                />
+                  className="flex items-center justify-center h-8 w-8 max-sm:h-7 max-sm:w-7 rounded-lg bg-white/[0.06] border border-white/[0.08] transition-all duration-300 hover:bg-purple1/15 hover:border-purple1/30 hover:scale-110"
+                >
+                  <img
+                    className="h-5 w-5 max-sm:h-4 max-sm:w-4 object-contain opacity-70 transition-opacity duration-300 group-hover:opacity-100"
+                    src={svg}
+                    alt=""
+                  />
+                </div>
               ))}
             </div>
           </div>
