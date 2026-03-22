@@ -2,6 +2,7 @@ import "./App.css";
 import AboutME from "./about_me";
 import ContactPage from "./contact_me";
 import CopyRight from "./copyright";
+import ExperiencePage from "./experience";
 import ExtraProjectPage from "./extra_projects";
 import MainPage from "./main_page";
 import NavBar from "./nav_bar";
@@ -19,10 +20,13 @@ function App() {
             <AboutME />
           </section>
           <section id="3">
+            <ExperiencePage />
+          </section>
+          <section id="4">
             <ProjectPage />
             <ExtraProjectPage />
           </section>
-          <section id="4">
+          <section id="5">
             <ContactPage />
           </section>
           <CopyRight />

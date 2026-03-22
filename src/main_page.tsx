@@ -15,6 +15,9 @@ const MainPage = () => {
           <div className=" bg-gradient-to-br from-purple1 to-purple2 bg-clip-text pb-4 text-8xl font-bold text-transparent max-sm:text-5xl">
             Ojasv Rathore
           </div>
+          <div className="text-lg text-purple4 font-medium">
+            Backend Engineer @ Swiggy
+          </div>
 
           <div
             ref={ref as any}
@@ -24,13 +27,15 @@ const MainPage = () => {
             {isVisible && (
               <TypeAnimation
                 sequence={[
-                  "Flutter Apps",
+                  "High-Throughput Backend Systems",
                   1000,
-                  "Desgin for Apps",
+                  "ETA & SLA Prediction Engines",
                   1000,
-                  "Desgin for web",
+                  "Real-Time Caching Pipelines",
                   1000,
-                  "Python Scripts",
+                  "Microservice Architectures",
+                  1000,
+                  "Flutter & React Apps",
                   1000,
                 ]}
                 wrapper="span"
@@ -41,12 +46,10 @@ const MainPage = () => {
           </div>
 
           <div className="mt-10 text-center text-xl text-white max-sm:text-start max-sm:text-base">
-            Welcome to my portfolio! I am a Computer Science Engineering student
-            specializing in app development. Currently pursuing my studies at
-            BUIT Bhopal, I have a strong passion for pushing the boundaries of
-            technology. I am actively seeking opportunities as a Software
-            Development Engineer (SDE) to further enhance my skills and
-            contribute to the tech industry.
+            Building high-throughput delivery logistics and ETA prediction
+            systems at Swiggy, serving millions of daily orders. Passionate
+            about scalable backend systems, real-time data pipelines, and
+            crafting great user experiences.
           </div>
         </div>
 

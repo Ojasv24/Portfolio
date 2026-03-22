@@ -29,8 +29,9 @@ const NavBar = () => {
         <div className="flex space-x-8 self-center pr-4 text-white max-lg:ml-20 max-md:hidden">
           <NavBarButton id="1" name="Home" size="" />
           <NavBarButton id="2" name="About" size="" />
-          <NavBarButton id="3" name="Project" size="" />
-          <NavBarButton id="4" name="Contacts" size="" />
+          <NavBarButton id="3" name="Experience" size="" />
+          <NavBarButton id="4" name="Projects" size="" />
+          <NavBarButton id="5" name="Contacts" size="" />
         </div>
         {/* Resume Button */}
         <button
@@ -52,8 +53,9 @@ const NavBar = () => {
         <div className=" flex flex-col items-start pl-4 text-white ">
           <NavBarButton id="1" name="Home" size="" />
           <NavBarButton id="2" name="About" size="" />
-          <NavBarButton id="3" name="Project" size="" />
-          <NavBarButton id="4" name="Contacts" size="" />
+          <NavBarButton id="3" name="Experience" size="" />
+          <NavBarButton id="4" name="Projects" size="" />
+          <NavBarButton id="5" name="Contacts" size="" />
         </div>
       )}
     </div>
