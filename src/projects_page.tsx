@@ -5,7 +5,6 @@ import go_white from "./assets/go_svg_white.svg";
 import gitbhut_svg_purple from "./assets/gitbhut_svg_purple.svg";
 import line_svg from "./assets/lini_svg_purple.svg";
 import youtube_svg from "./assets/youtube_purple.svg";
-import Heading from "./components/heading";
 import firbase_svg from "./assets/firebase_white.svg";
 import python_svg from "./assets/python_white.svg";
 import pygame_svg from "./assets/pygmae.svg";
@@ -18,17 +17,21 @@ import atv from "./assets/atv.png";
 
 const ProjectPage = () => {
   return (
-    // <div></div>
+    <div className="flex flex-col bg-Background px-6 py-20 max-md:px-4 max-sm:px-3">
+      <div className="pb-4 text-center text-6xl font-bold max-sm:text-3xl">
+        <span className="text-white">Projects </span>
+        <span className="bg-gradient-to-br from-purple3 to-purple1 bg-clip-text text-transparent">I've Built</span>
+      </div>
 
-    <div className="flex flex-col bg-Background px-20 py-10 max-md:px-10 max-sm:items-start max-sm:px-2">
-      <Heading title="Some of the Projects I have made" />
-      <div className="mt-5 flex flex-col space-y-10">
+      {/* Project Cards */}
+      <div className="mt-8 flex flex-col gap-16 max-w-6xl mx-auto w-full">
         <Project
+          index={0}
           name="Multiplayer UNO Game"
           projectDescription={[
             "Created a Multiplatform Real-Time Multiplayer UNO game using Flutter and Golang with GraphQL",
-            "Implemented a room feature which allows multiple games to be played simultaneously ",
-            " Created a Go Azure Web App so the game can be active all the time, and anyone from anywhere can play it",
+            "Implemented a room feature which allows multiple games to be played simultaneously",
+            "Created a Go Azure Web App so the game can be active all the time, and anyone from anywhere can play it",
           ]}
           techIcons={[flutter_white, react_white, go_white]}
           sourceIcons={[gitbhut_svg_purple, line_svg]}
@@ -41,7 +44,8 @@ const ProjectPage = () => {
           image={uno_game}
         />
         <Project
-          name="Punchy Earth a Python Game"
+          index={1}
+          name="Punchy Earth — A Python Game"
           projectDescription={[
             "A physics-based game where a player has to protect Earth from forthcoming asteroids using punch and shield using Python, Pygame and Pymuck",
             "Used Pygame for computer graphics and music and Pymuck for simulating physics for punches and asteroids",
@@ -59,6 +63,7 @@ const ProjectPage = () => {
           reverse={true}
         />
         <Project
+          index={2}
           name="Chat App"
           projectDescription={[
             "Created an Android application using Flutter and Firebase to chat in real time.",
@@ -73,6 +78,7 @@ const ProjectPage = () => {
           image={chat_app}
         />
         <Project
+          index={3}
           name="Article to Video Converter"
           projectDescription={[
             "A program which takes input an article URL and generates a video with important lines from the articles, adds images related to the line and adds music according to the article sentiment.",

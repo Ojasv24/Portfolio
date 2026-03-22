@@ -38,6 +38,12 @@ export default {
         slideUp: 'slideUp 0.6s ease-out forwards',
         pulseGlow: 'pulseGlow 2s ease-in-out infinite',
         growLine: 'growLine 0.8s ease-out forwards',
+        navSlideDown: 'navSlideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        navFadeIn: 'navFadeIn 0.5s ease-out forwards',
+        menuSlideIn: 'menuSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        shimmer: 'shimmer 2s linear infinite',
+        float: 'float 3s ease-in-out infinite',
+        glowPulse: 'glowPulse 2s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -68,6 +74,30 @@ export default {
           '0%, 50%, 100%': { transform: 'rotate(0deg)' },
           '25%': { transform: 'rotate(1deg)' },
           '75%': { transform: 'rotate(-1deg)' },
+        },
+        navSlideDown: {
+          '0%': { opacity: '0', transform: 'translateY(-100%)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' }
+        },
+        navFadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(-10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' }
+        },
+        menuSlideIn: {
+          '0%': { opacity: '0', transform: 'translateX(-20px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' }
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' }
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-3px)' }
+        },
+        glowPulse: {
+          '0%, 100%': { boxShadow: '0 0 5px rgba(156,18,220,0.4), 0 0 10px rgba(156,18,220,0.2)' },
+          '50%': { boxShadow: '0 0 15px rgba(156,18,220,0.6), 0 0 30px rgba(156,18,220,0.3), 0 0 45px rgba(156,18,220,0.1)' }
         }
       },
       height: {

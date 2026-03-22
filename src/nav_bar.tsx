@@ -1,63 +1,185 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import logo from "./assets/ORnew.png";
-import hamberger from "./assets/hamberbur.svg";
 import resume from "./assets/resume.svg";
 import NavBarButton from "./components/nav_bar_button_com";
 
+const navLinks = [
+  { id: "1", name: "Home" },
+  { id: "2", name: "About" },
+  { id: "3", name: "Experience" },
+  { id: "4", name: "Projects" },
+  { id: "5", name: "Contacts" },
+];
+
 const NavBar = () => {
-  const [show, showMenu] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("1");
+  const [mounted, setMounted] = useState(false);
+
+  // Entrance animation trigger
+  useEffect(() => {
+    const t = setTimeout(() => setMounted(true), 100);
+    return () => clearTimeout(t);
+  }, []);
+
+  // Scroll-aware glass background
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Active section tracking via IntersectionObserver
+  useEffect(() => {
+    const ids = navLinks.map((l) => l.id);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  // Close mobile menu on link click
+  const handleNavClick = useCallback(() => {
+    setMenuOpen(false);
+  }, []);
+
   return (
-    <div className="sticky top-0 z-10 bg-black">
-      {/* Nav Bar */}
-      <div className="space-x-33 mx-20 flex h-20 justify-around max-sm:mx-0">
-        <div className="flex flex-1">
-          <img className="" src={logo} alt="" />
-          <div className="self-center text-2xl font-bold text-white">
-            Ojasv Rathore
+    <div className={`sticky top-0 z-50 w-full transition-all duration-500 ease-out ${mounted ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+      } ${scrolled ? "px-4 pt-2 max-sm:px-2" : "bg-black max-md:bg-black"
+      }`}
+    >
+      <nav
+        className={`mx-auto transition-all duration-500 ease-out ${scrolled
+          ? "max-w-4xl rounded-full border border-purple1/15 bg-black/70 shadow-[0_8px_32px_rgba(156,18,220,0.12)] backdrop-blur-xl max-md:rounded-2xl max-md:bg-black/95"
+          : "max-w-full bg-black"
+          }`}
+      >
+        <div className={`mx-auto flex items-center justify-between transition-all duration-500 ${scrolled ? "h-12 px-5 max-sm:px-3" : "h-18 max-w-7xl px-6 max-sm:px-3"
+          }`}>
+          {/* Logo + Name */}
+          <a
+            href="#1"
+            className="group flex items-center gap-2 transition-transform duration-300 hover:scale-[1.02]"
+          >
+            <div className="relative">
+              <img
+                className={`w-auto transition-all duration-500 group-hover:brightness-125 ${scrolled ? "h-8" : "h-12"
+                  }`}
+                src={logo}
+                alt="Logo"
+              />
+              {/* Glow behind logo on hover */}
+              <div className="absolute inset-0 -z-10 rounded-full bg-purple1/0 blur-xl transition-all duration-500 group-hover:bg-purple1/20" />
+            </div>
+            <span className={`bg-gradient-to-r from-white via-white to-purple4 bg-clip-text font-bold text-transparent transition-all duration-500 group-hover:from-purple4 group-hover:to-white ${scrolled ? "text-base max-sm:text-sm" : "text-xl max-sm:text-lg"
+              }`}>
+              Ojasv Rathore
+            </span>
+          </a>
+
+          {/* Desktop Nav Links */}
+          <div className="hidden items-center gap-1 md:flex">
+            {navLinks.map((link, i) => (
+              <div
+                key={link.id}
+                className="animate-navFadeIn"
+                style={{ animationDelay: `${i * 100 + 200}ms`, animationFillMode: "both" }}
+              >
+                <NavBarButton
+                  id={link.id}
+                  name={link.name}
+                  isActive={activeSection === link.id}
+                  onClick={handleNavClick}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Right side: Resume + Hamburger */}
+          <div className="flex items-center gap-3">
+            {/* Resume Button */}
+            <a
+              href="https://drive.google.com/file/d/1DDJyx1e4hZTfJOsL5EJsQhXjRpm2fEvI/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`group relative flex items-center gap-2 overflow-hidden rounded-full border border-purple1/30 bg-gradient-to-r from-purple1/10 to-purple2/10 font-bold text-white transition-all duration-500 hover:border-purple1/60 hover:shadow-[0_0_20px_rgba(156,18,220,0.3)] animate-navFadeIn ${scrolled ? "px-4 py-1.5 text-sm" : "px-5 py-2"
+                }`}
+              style={{ animationDelay: "700ms", animationFillMode: "both" }}
+            >
+              {/* Shimmer overlay */}
+              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-purple1/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+              <img
+                src={resume}
+                alt=""
+                className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110"
+              />
+              <span className="relative z-10 max-sm:hidden">Resume</span>
+            </a>
+
+            {/* Hamburger / X button (mobile) */}
+            <button
+              className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[5px] md:hidden"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+            >
+              <span
+                className={`h-[2px] w-6 rounded-full bg-white transition-all duration-[400ms] ease-[cubic-bezier(0.68,-0.6,0.32,1.6)] ${menuOpen ? "translate-y-[7px] rotate-45 bg-purple1" : ""
+                  }`}
+              />
+              <span
+                className={`h-[2px] w-6 rounded-full bg-white transition-all duration-300 ${menuOpen ? "scale-x-0 opacity-0" : "opacity-100"
+                  }`}
+              />
+              <span
+                className={`h-[2px] w-6 rounded-full bg-white transition-all duration-[400ms] ease-[cubic-bezier(0.68,-0.6,0.32,1.6)] ${menuOpen ? "-translate-y-[7px] -rotate-45 bg-purple1" : ""
+                  }`}
+              />
+            </button>
           </div>
         </div>
-        {/* Hamburger Menu */}
-        <button
-          className="self-center pr-8  max-sm:pr-2 md:collapse"
-          onClick={() => {
-            showMenu(!show);
-          }}
+
+        {/* Mobile Menu */}
+        <div
+          className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:hidden ${menuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+            }`}
         >
-          <img className="h-8 w-6" src={hamberger} alt="" />
-        </button>
-        {/* Nav Links */}
-        <div className="flex space-x-8 self-center pr-4 text-white max-lg:ml-20 max-md:hidden">
-          <NavBarButton id="1" name="Home" size="" />
-          <NavBarButton id="2" name="About" size="" />
-          <NavBarButton id="3" name="Experience" size="" />
-          <NavBarButton id="4" name="Projects" size="" />
-          <NavBarButton id="5" name="Contacts" size="" />
+          <div className={`border-t border-purple1/10 bg-black px-6 pb-6 pt-4 ${scrolled ? "rounded-b-2xl" : ""
+            }`}>
+            {navLinks.map((link, i) => (
+              <div
+                key={link.id}
+                className={`transition-all duration-500 ${menuOpen
+                  ? "translate-x-0 opacity-100"
+                  : "-translate-x-4 opacity-0"
+                  }`}
+                style={{
+                  transitionDelay: menuOpen ? `${i * 80}ms` : "0ms",
+                }}
+              >
+                <NavBarButton
+                  id={link.id}
+                  name={link.name}
+                  isActive={activeSection === link.id}
+                  onClick={handleNavClick}
+                  mobile
+                />
+              </div>
+            ))}
+          </div>
         </div>
-        {/* Resume Button */}
-        <button
-          className="mr-2 flex h-10 justify-between self-center rounded-3xl bg-gradient-to-r 
-                 from-purple1 via-purple2 to-purple2 bg-[size:_200%] bg-[position:_0%_0%] px-4 font-bold text-white transition-all duration-500 hover:bg-[position:_100%_100%] "
-        >
-          <a
-            href="https://drive.google.com/file/d/1DDJyx1e4hZTfJOsL5EJsQhXjRpm2fEvI/view?usp=sharing"
-            className="self-center pr-2 "
-          >
-            <img src={resume} alt="" />
-          </a>
-          <span className="self-center p-0 max-sm:hidden max-sm:w-0 ">
-            Resume
-          </span>
-        </button>
-      </div>
-      {show && (
-        <div className=" flex flex-col items-start pl-4 text-white ">
-          <NavBarButton id="1" name="Home" size="" />
-          <NavBarButton id="2" name="About" size="" />
-          <NavBarButton id="3" name="Experience" size="" />
-          <NavBarButton id="4" name="Projects" size="" />
-          <NavBarButton id="5" name="Contacts" size="" />
-        </div>
-      )}
+      </nav>
     </div>
   );
 };
