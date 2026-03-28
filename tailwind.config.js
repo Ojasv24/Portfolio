@@ -13,21 +13,26 @@ export default {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      black: '#0C0C0C',
+      /* Theme-dependent colors (use CSS variables for auto light/dark) */
+      black: 'rgb(var(--color-bg-secondary) / <alpha-value>)',
       black2: '#300566',
-      white: '#FFFFFF',
-      white2: '#D9D9D9',
-      Background: '#0C1014',
+      white: 'rgb(var(--color-text-primary) / <alpha-value>)',
+      white2: 'rgb(var(--color-text-secondary) / <alpha-value>)',
+      Background: 'rgb(var(--color-bg-primary) / <alpha-value>)',
+      gray: 'rgb(var(--color-text-muted) / <alpha-value>)',
+      gray2: 'rgb(var(--color-surface) / <alpha-value>)',
+      /* Accent colors stay the same in both themes */
       purple1: '#9C12DC',
       purple2: '#300566',
       purple3: '#B41992',
-      purple4: '#DD94FF',
+      purple4: 'var(--color-accent-soft)',
       blue: '#eae9ee',
-      gray: "#9CA3AF",
-      gray2: "#1E1E1E",
       pink: "#B41992",
       orange: "#E17E08",
       green: { 400: "#4ade80" },
+      /* Fixed colors (theme-independent) */
+      pureWhite: '#FFFFFF',
+      pureBlack: '#0C0C0C',
     },
     extend: {
       animation: {

@@ -55,7 +55,7 @@ const ContactPage = () => {
         >
           <a
             href="mailto:ojasv.rathore@gmail.com"
-            className="group relative mx-auto block overflow-hidden rounded-2xl border border-white/5 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-500 hover:border-purple1/30 hover:bg-white/[0.06] hover:shadow-[0_0_40px_rgba(156,18,220,0.1)]"
+            className="group relative mx-auto block overflow-hidden rounded-2xl border border-purple1/10 bg-gray2/30 p-6 backdrop-blur-sm transition-all duration-500 hover:border-purple1/30 hover:bg-gray2/50 hover:shadow-[0_0_40px_rgba(156,18,220,0.1)]"
           >
             {/* Shimmer on hover */}
             <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-purple1/5 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
@@ -88,11 +88,11 @@ const ContactPage = () => {
           className={`mb-10 flex items-center gap-4 transition-all delay-300 duration-700 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
         >
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent to-white/10" />
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent to-purple1/15" />
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-white/30">
             or find me on
           </span>
-          <div className="h-px flex-1 bg-gradient-to-l from-transparent to-white/10" />
+          <div className="h-px flex-1 bg-gradient-to-l from-transparent to-purple1/15" />
         </div>
 
         {/* Social Links */}
@@ -106,7 +106,7 @@ const ContactPage = () => {
               href={social.link}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group relative flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.08] max-sm:h-14 max-sm:w-14 ${social.color}`}
+              className={`group relative flex h-16 w-16 items-center justify-center rounded-2xl border border-purple1/10 bg-gray2/30 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:bg-gray2/50 max-sm:h-14 max-sm:w-14 ${social.color}`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               <img
@@ -115,7 +115,7 @@ const ContactPage = () => {
                 alt={social.label}
               />
               {/* Tooltip */}
-              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-white/10 px-2.5 py-1 text-xs font-medium text-white/70 opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100 max-sm:hidden">
+              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-gray2/60 px-2.5 py-1 text-xs font-medium text-white/70 opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100 max-sm:hidden">
                 {social.label}
               </span>
             </a>

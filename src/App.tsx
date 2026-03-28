@@ -17,13 +17,13 @@ function App() {
         <section id="1">
           <MainPage />
         </section>
-        <CurveSeparator topColor="#0C1014" bottomColor="#0C0C0C" variant="wave" />
+        <CurveSeparator topType="primary" bottomType="secondary" variant="wave" />
         <div className="overflow-x-auto">
           <section id="2">
             <AboutME />
             <TechnicalSkills />
           </section>
-          <CurveSeparator topColor="#0C0C0C" bottomColor="#0C1014" variant="slope" />
+          <CurveSeparator topType="secondary" bottomType="primary" variant="slope" />
           <section id="3">
             <ExperiencePage />
           </section>
@@ -43,7 +43,7 @@ function App() {
             <ProjectPage />
             <ExtraProjectPage />
           </section>
-          <CurveSeparator topColor="#0C1014" bottomColor="#0C0C0C" variant="wave" />
+          <CurveSeparator topType="primary" bottomType="secondary" variant="wave" />
           <section id="5" className="scroll-mt-20">
             <ContactPage />
           </section>

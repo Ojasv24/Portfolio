@@ -252,7 +252,7 @@ const MainPage = () => {
           <div className="mt-6 flex gap-4 max-sm:flex-col max-sm:gap-3">
             <a
               href="#5"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-purple1 to-pink px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-purple1/25 transition-all duration-300 hover:shadow-purple1/40 hover:scale-105 max-sm:justify-center"
+              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-purple1 to-pink px-7 py-3 text-sm font-semibold text-pureWhite shadow-lg shadow-purple1/25 transition-all duration-300 hover:shadow-purple1/40 hover:scale-105 max-sm:justify-center"
             >
               <span className="relative z-10">Get in Touch</span>
               <svg
@@ -269,7 +269,7 @@ const MainPage = () => {
                 />
               </svg>
               {/* shimmer overlay */}
-              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-pureWhite/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
             </a>
 
             <a

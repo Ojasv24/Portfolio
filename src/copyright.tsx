@@ -42,7 +42,7 @@ const CopyRight = () => {
           </nav>
 
           {/* Divider */}
-          <div className="h-px w-48 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+          <div className="h-px w-48 bg-gradient-to-r from-transparent via-purple1/20 to-transparent" />
 
           {/* Copyright text */}
           <p className="text-center text-xs tracking-wide text-gray/60">

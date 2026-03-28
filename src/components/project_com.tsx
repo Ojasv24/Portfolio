@@ -60,7 +60,7 @@ function Project(props: Props) {
   return (
     <div
       ref={ref}
-      className={`project-card group relative rounded-2xl bg-gray2/40 border border-white/[0.06] transition-all duration-700 ease-out hover:border-purple1/20 hover:shadow-[0_8px_40px_rgba(156,18,220,0.08)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"
+      className={`project-card group relative rounded-2xl bg-gray2/40 border border-purple1/10 transition-all duration-700 ease-out hover:border-purple1/20 hover:shadow-[0_8px_40px_rgba(156,18,220,0.08)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"
         }`}
       style={{ transitionDelay: `${baseDelay}ms` }}
     >
@@ -100,7 +100,7 @@ function Project(props: Props) {
               alt={props.name}
             />
             {/* Subtle overlay on hover */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-pureBlack/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             {/* Project number watermark */}
             <span className="absolute bottom-3 right-4 text-6xl font-black text-white/[0.04] select-none pointer-events-none">
               {String(idx + 1).padStart(2, "0")}
@@ -126,7 +126,7 @@ function Project(props: Props) {
               {props.techIcons.map((svg, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-center h-8 w-8 max-sm:h-7 max-sm:w-7 rounded-lg bg-white/[0.06] border border-white/[0.08] transition-all duration-300 hover:bg-purple1/15 hover:border-purple1/30 hover:scale-110"
+                  className="flex items-center justify-center h-8 w-8 max-sm:h-7 max-sm:w-7 rounded-lg bg-gray2/40 border border-purple1/10 transition-all duration-300 hover:bg-purple1/15 hover:border-purple1/30 hover:scale-110"
                 >
                   <img
                     className="h-5 w-5 max-sm:h-4 max-sm:w-4 object-contain opacity-70 transition-opacity duration-300 group-hover:opacity-100"
@@ -183,7 +183,7 @@ function Project(props: Props) {
                 href={props.sourceLinks[index]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-white/[0.04] border border-white/[0.08] px-4 py-2 text-xs font-medium text-gray transition-all duration-300 hover:border-purple1/40 hover:bg-purple1/10 hover:text-purple4 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(156,18,220,0.12)]"
+                className="inline-flex items-center gap-2 rounded-full bg-gray2/30 border border-purple1/10 px-4 py-2 text-xs font-medium text-gray transition-all duration-300 hover:border-purple1/40 hover:bg-purple1/10 hover:text-purple4 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(156,18,220,0.12)]"
               >
                 <img className="h-4 w-4" src={svg} alt="" />
                 <span>{index === 0 ? "Source" : "Demo"}</span>

@@ -72,7 +72,7 @@ const ExtraProjectPage = () => {
       {/* ── Toggle Button ── */}
       <button
         onClick={() => setShow(!show)}
-        className="group relative mb-8 flex items-center gap-3 rounded-2xl border border-white/[0.06] bg-[#141418] px-6 py-3 transition-all duration-500 hover:border-purple1/30 hover:bg-[#18181e] hover:shadow-[0_0_24px_rgba(156,18,220,0.12)] max-sm:px-4 max-sm:py-2.5"
+        className="group relative mb-8 flex items-center gap-3 rounded-2xl border border-purple1/10 bg-gray2/60 px-6 py-3 transition-all duration-500 hover:border-purple1/30 hover:bg-gray2/80 hover:shadow-[0_0_24px_rgba(156,18,220,0.12)] max-sm:px-4 max-sm:py-2.5"
       >
         {/* Animated icon */}
         <span

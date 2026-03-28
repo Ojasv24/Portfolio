@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import logo from "./assets/ORnew.png";
 import NavBarButton from "./components/nav_bar_button_com";
+import ThemeToggle from "./components/ThemeToggle";
 
 const navLinks = [
   { id: "1", name: "Home" },
@@ -58,12 +59,14 @@ const NavBar = () => {
     <div className={`sticky top-0 z-50 w-full transition-all duration-500 ease-out ${mounted ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       } ${scrolled ? "px-4 pt-2 max-sm:px-2" : "bg-black max-md:bg-black"
       }`}
+      style={{ transition: 'background-color 0.5s ease, opacity 0.5s ease, transform 0.5s ease' }}
     >
       <nav
         className={`mx-auto transition-all duration-500 ease-out ${scrolled
           ? "max-w-4xl rounded-full border border-purple1/15 bg-black/70 shadow-[0_8px_32px_rgba(156,18,220,0.12)] backdrop-blur-xl max-md:rounded-2xl max-md:bg-black/95"
           : "max-w-full bg-black"
           }`}
+        style={{ transition: 'background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease' }}
       >
         <div className={`mx-auto flex items-center justify-between transition-all duration-500 ${scrolled ? "h-12 px-5 max-sm:px-3" : "h-18 max-w-7xl px-6 max-sm:px-3"
           }`}>
@@ -106,23 +109,26 @@ const NavBar = () => {
             ))}
           </div>
 
-          {/* Right side: Resume + Hamburger */}
+          {/* Right side: Theme Toggle + Resume + Hamburger */}
           <div className="flex items-center gap-3">
+            {/* Theme Toggle */}
+            <ThemeToggle />
+
             {/* Resume Button */}
             <a
               href="https://drive.google.com/file/d/1hPxTgx7OJzkKe8BCOe8xkIR_rK2BqpYO/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
-              className={`group relative flex items-center gap-2 overflow-hidden rounded-full font-semibold text-white transition-all duration-500 animate-navFadeIn ${scrolled ? "px-4 py-1.5 text-sm" : "px-5 py-2.5"
+              className={`group relative flex items-center gap-2 overflow-hidden rounded-full font-semibold text-pureWhite transition-all duration-500 animate-navFadeIn ${scrolled ? "px-4 py-1.5 text-sm" : "px-5 py-2.5"
                 }`}
               style={{ animationDelay: "700ms", animationFillMode: "both" }}
             >
               {/* Animated gradient border */}
               <span className="absolute inset-0 rounded-full bg-gradient-to-r from-purple1 via-purple3 to-purple1 bg-[length:200%_100%] p-[1.5px] transition-all duration-500 group-hover:bg-[length:100%_100%] group-hover:shadow-[0_0_24px_rgba(156,18,220,0.45)]" style={{ animation: 'borderShimmer 3s linear infinite' }}>
-                <span className="block h-full w-full rounded-full bg-black/90 backdrop-blur-xl transition-all duration-500 group-hover:bg-black/70" />
+                <span className="block h-full w-full rounded-full bg-pureBlack/90 backdrop-blur-xl transition-all duration-500 group-hover:bg-pureBlack/70" />
               </span>
               {/* Shimmer sweep */}
-              <span className="absolute inset-0 -translate-x-full rounded-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
+              <span className="absolute inset-0 -translate-x-full rounded-full bg-gradient-to-r from-transparent via-pureWhite/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
               <svg
                 className="relative z-10 h-4 w-4 transition-all duration-300 group-hover:scale-110"
                 viewBox="0 0 24 24"

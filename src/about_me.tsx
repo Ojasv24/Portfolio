@@ -110,7 +110,7 @@ const AboutME = () => {
               (t) => (
                 <span
                   key={t}
-                  className="about-tag rounded-full border border-white/10 px-3 py-1 text-xs text-white/50 opacity-0"
+                  className="about-tag rounded-full border border-purple1/15 bg-gray2/30 px-3 py-1 text-xs text-white/50 opacity-0"
                 >
                   {t}
                 </span>
@@ -124,7 +124,7 @@ const AboutME = () => {
           {highlights.map((h) => (
             <div
               key={h.label}
-              className="about-highlight flex items-baseline justify-between border-b border-white/[0.06] pb-3 opacity-0 lg:flex-col lg:items-start"
+              className="about-highlight flex items-baseline justify-between border-b border-purple1/10 pb-3 opacity-0 lg:flex-col lg:items-start"
             >
               <span className="bg-gradient-to-r from-purple3 to-purple4 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl">
                 {h.value}

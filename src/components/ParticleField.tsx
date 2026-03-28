@@ -1,6 +1,21 @@
-import { useRef, useMemo, useCallback, useEffect } from "react";
+import { useRef, useMemo, useCallback, useEffect, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
+
+/* ── Theme hook for Three.js components ─────────────────────────── */
+function useDocTheme() {
+    const [isDark, setIsDark] = useState(
+        () => document.documentElement.classList.contains("dark") || !document.documentElement.classList.contains("light")
+    );
+    useEffect(() => {
+        const observer = new MutationObserver(() => {
+            setIsDark(!document.documentElement.classList.contains("light"));
+        });
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+        return () => observer.disconnect();
+    }, []);
+    return isDark;
+}
 
 /* ── Floating Particles ─────────────────────────────────────────── */
 const PARTICLE_COUNT = 1800;
@@ -9,6 +24,7 @@ function Particles() {
     const mesh = useRef<THREE.Points>(null);
     const mouse = useRef({ x: 0, y: 0 });
     const { viewport } = useThree();
+    const isDark = useDocTheme();
 
     const [positions, velocities, colors, sizes] = useMemo(() => {
         const pos = new Float32Array(PARTICLE_COUNT * 3);
@@ -132,8 +148,8 @@ function Particles() {
                 size={0.06}
                 vertexColors
                 transparent
-                opacity={0.8}
-                blending={THREE.AdditiveBlending}
+                opacity={isDark ? 0.8 : 0.5}
+                blending={isDark ? THREE.AdditiveBlending : THREE.NormalBlending}
                 depthWrite={false}
                 map={particleTexture}
                 sizeAttenuation
@@ -145,6 +161,7 @@ function Particles() {
 /* ── Glowing Orbs ───────────────────────────────────────────────── */
 function GlowOrbs() {
     const group = useRef<THREE.Group>(null);
+    const isDark = useDocTheme();
 
     const orbs = useMemo(
         () =>
@@ -182,7 +199,7 @@ function GlowOrbs() {
                     <meshBasicMaterial
                         color={orb.color}
                         transparent
-                        opacity={0.06}
+                        opacity={isDark ? 0.06 : 0.1}
                     />
                 </mesh>
             ))}
@@ -193,6 +210,7 @@ function GlowOrbs() {
 /* ── Connection Lines ───────────────────────────────────────────── */
 function ConnectionLines() {
     const lineRef = useRef<THREE.LineSegments>(null);
+    const isDark = useDocTheme();
 
     const nodes = useMemo(() => {
         const pts: THREE.Vector3[] = [];
@@ -247,8 +265,8 @@ function ConnectionLines() {
             <lineBasicMaterial
                 color="#9C12DC"
                 transparent
-                opacity={0.08}
-                blending={THREE.AdditiveBlending}
+                opacity={isDark ? 0.08 : 0.15}
+                blending={isDark ? THREE.AdditiveBlending : THREE.NormalBlending}
             />
         </lineSegments>
     );

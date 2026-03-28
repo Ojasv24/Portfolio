@@ -41,9 +41,9 @@ function ExtraProject({ name, description, techStack, links, index = 0, show = f
           : "translateY(32px) scale(0.95)",
       }}
     >
-      <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-[#111115] transition-all duration-500 hover:border-purple1/25 hover:shadow-[0_4px_40px_rgba(156,18,220,0.08)]">
+      <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-purple1/10 bg-gray2/60 transition-all duration-500 hover:border-purple1/25 hover:shadow-[0_4px_40px_rgba(156,18,220,0.08)]">
         {/* ── Card Top: accent + number ── */}
-        <div className="relative flex items-center gap-3 border-b border-white/[0.04] px-5 py-4">
+        <div className="relative flex items-center gap-3 border-b border-purple1/10 px-5 py-4">
           {/* Left accent line */}
           <div className="absolute left-0 top-3 bottom-3 w-[3px] rounded-r-full bg-gradient-to-b from-purple3 to-purple1" />
 

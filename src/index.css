@@ -2,8 +2,154 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ══════════════════════════════════════════════════════════════
+   Theme CSS Variables (RGB triplets for Tailwind opacity support)
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  /* Backgrounds */
+  --color-bg-primary: 12 16 20;
+  /* #0C1014 → Background */
+  --color-bg-secondary: 12 12 12;
+  /* #0C0C0C → black */
+  --color-surface: 30 30 30;
+  /* #1E1E1E → gray2 */
+
+  /* Text */
+  --color-text-primary: 255 255 255;
+  /* white */
+  --color-text-secondary: 217 217 217;
+  /* white2 / #D9D9D9 */
+  --color-text-muted: 156 163 175;
+  /* gray / #9CA3AF */
+
+  /* Accent that adapts */
+  --color-accent-soft: #DD94FF;
+
+  /* Theme transition */
+  --theme-transition: background-color 0.6s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* ── Light Theme ─────────────────────────────────────────── */
+:root.light {
+  --color-bg-primary: 240 241 246;
+  /* #F0F1F6 */
+  --color-bg-secondary: 255 255 255;
+  /* #FFFFFF */
+  --color-surface: 232 233 240;
+  /* #E8E9F0 */
+
+  --color-text-primary: 26 26 46;
+  /* #1A1A2E */
+  --color-text-secondary: 55 55 75;
+  /* #37374B */
+  --color-text-muted: 107 114 128;
+  /* #6B7280 */
+
+  /* Darker purple accent for readability on light bg */
+  --color-accent-soft: #8A0FC4;
+}
+
+/* ── Light Theme — component overrides ────────────────────── */
+
+/* Cards get subtle shadows on light */
+:root.light .exp-card {
+  background: rgb(var(--color-bg-secondary) / 0.8);
+  border: 1px solid rgba(156, 18, 220, 0.1);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+:root.light .exp-card:hover {
+  box-shadow: 0 4px 24px rgba(156, 18, 220, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+:root.light .exp-card-inner {
+  background: linear-gradient(165deg,
+      rgb(var(--color-bg-secondary) / 0.95) 0%,
+      rgb(var(--color-bg-secondary) / 1) 50%,
+      rgb(var(--color-bg-secondary) / 0.95) 100%);
+}
+
+:root.light .skill-card {
+  background: rgb(var(--color-bg-secondary) / 0.8);
+  border: 1px solid rgba(156, 18, 220, 0.08);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+:root.light .skill-card:hover {
+  box-shadow: 0 4px 24px rgba(156, 18, 220, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+:root.light .skill-card-inner {
+  background: linear-gradient(160deg,
+      rgb(var(--color-bg-secondary) / 0.98) 0%,
+      rgb(var(--color-bg-secondary) / 1) 50%,
+      rgb(var(--color-bg-secondary) / 0.98) 100%);
+}
+
+:root.light .skill-chip {
+  background: rgb(var(--color-bg-secondary) / 0.9);
+  border: 1px solid rgba(156, 18, 220, 0.1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+:root.light .skill-chip:hover {
+  background: rgba(156, 18, 220, 0.08);
+  box-shadow: 0 2px 12px rgba(156, 18, 220, 0.12);
+}
+
+:root.light .exp-badge {
+  background: rgba(156, 18, 220, 0.06);
+  border-color: rgba(156, 18, 220, 0.12);
+}
+
+:root.light .exp-project-card {
+  background: rgb(var(--color-bg-secondary) / 0.7);
+  border-color: rgba(156, 18, 220, 0.1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+:root.light .exp-project-card:hover {
+  background: rgba(156, 18, 220, 0.06);
+  box-shadow: 0 2px 8px rgba(156, 18, 220, 0.08);
+}
+
+/* Light scrollbar */
+:root.light {
+  scrollbar-color: rgba(156, 18, 220, 0.35) rgba(240, 241, 246, 0.6);
+}
+
+/* Project cards in light mode */
+:root.light .project-card {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06), 0 1px 6px rgba(0, 0, 0, 0.04);
+}
+
+:root.light .project-card:hover {
+  box-shadow: 0 8px 40px rgba(156, 18, 220, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Typed animation box light mode */
+:root.light .type-animation-cursor::after {
+  color: #9C12DC !important;
+}
+
+/* Nav glass in light mode */
+:root.light nav {
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+/* Smooth global theme transitions */
+body,
+nav,
+section,
+div,
+main,
+header,
+footer {
+  transition: var(--theme-transition);
 }
 
 /* ── Custom Scrollbar ─────────────────────────────────────── */
@@ -21,20 +167,20 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(10, 10, 14, 0.6);
+  background: rgb(var(--color-bg-primary) / 0.6);
   border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #9C12DC 0%, #DD94FF 50%, #B41992 100%);
   border-radius: 8px;
-  border: 2px solid rgba(10, 10, 14, 0.6);
+  border: 2px solid rgb(var(--color-bg-primary) / 0.6);
   background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #b02ef0 0%, #e6b3ff 50%, #d41db0 100%);
-  border: 1px solid rgba(10, 10, 14, 0.4);
+  border: 1px solid rgb(var(--color-bg-primary) / 0.4);
   background-clip: padding-box;
 }
 
@@ -134,11 +280,11 @@ html {
 
 /* Card: subtle glass background */
 .exp-card {
-  background: rgba(30, 30, 30, 0.45);
+  background: rgb(var(--color-surface) / 0.45);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(156, 18, 220, 0.12);
-  transition: border-color 0.5s, box-shadow 0.5s, transform 0.4s;
+  transition: border-color 0.5s, box-shadow 0.5s, transform 0.4s, background 0.5s;
 }
 
 .exp-card:hover {
@@ -180,9 +326,10 @@ html {
 /* Card inner layer */
 .exp-card-inner {
   background: linear-gradient(165deg,
-      rgba(30, 30, 30, 0.85) 0%,
-      rgba(20, 20, 24, 0.95) 50%,
-      rgba(30, 30, 30, 0.85) 100%);
+      rgb(var(--color-surface) / 0.85) 0%,
+      rgb(var(--color-bg-secondary) / 0.95) 50%,
+      rgb(var(--color-surface) / 0.85) 100%);
+  transition: background 0.5s ease;
 }
 
 /* Logo gradient ring */
@@ -223,11 +370,11 @@ html {
 
 /* Category card glass */
 .skill-card {
-  background: rgba(30, 30, 30, 0.4);
+  background: rgb(var(--color-surface) / 0.4);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(156, 18, 220, 0.1);
-  transition: border-color 0.5s, box-shadow 0.5s, transform 0.4s, opacity 0.7s;
+  transition: border-color 0.5s, box-shadow 0.5s, transform 0.4s, opacity 0.7s, background 0.5s;
 }
 
 .skill-card:hover {
@@ -257,9 +404,10 @@ html {
 /* Card inner gradient */
 .skill-card-inner {
   background: linear-gradient(160deg,
-      rgba(28, 28, 32, 0.9) 0%,
-      rgba(18, 18, 22, 0.95) 50%,
-      rgba(28, 28, 32, 0.9) 100%);
+      rgb(var(--color-surface) / 0.9) 0%,
+      rgb(var(--color-bg-secondary) / 0.95) 50%,
+      rgb(var(--color-surface) / 0.9) 100%);
+  transition: background 0.5s ease;
 }
 
 /* Category icon container with accent glow */
@@ -276,10 +424,11 @@ html {
 
 /* Individual skill chips */
 .skill-chip {
-  background: rgba(12, 16, 20, 0.6);
+  background: rgb(var(--color-bg-primary) / 0.6);
   border: 1px solid rgba(156, 18, 220, 0.08);
   backdrop-filter: blur(8px);
   cursor: default;
+  transition: background 0.5s ease, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
 .skill-chip:hover {
