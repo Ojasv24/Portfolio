@@ -56,20 +56,21 @@ const NavBar = () => {
   }, []);
 
   return (
-    <div className={`sticky top-0 z-50 w-full transition-all duration-500 ease-out ${mounted ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+    <div className={`sticky top-0 z-50 w-full will-change-transform ${mounted ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       } ${scrolled ? "px-4 pt-2 max-sm:px-2" : "bg-black max-md:bg-black"
       }`}
-      style={{ transition: 'background-color 0.5s ease, opacity 0.5s ease, transform 0.5s ease' }}
+      style={{ transition: 'background-color 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.6s ease-out, transform 0.6s ease-out' }}
     >
       <nav
-        className={`mx-auto transition-all duration-500 ease-out ${scrolled
-          ? "max-w-4xl rounded-full border border-purple1/15 bg-black/70 shadow-[0_8px_32px_rgba(156,18,220,0.12)] backdrop-blur-xl max-md:rounded-2xl max-md:bg-black/95"
-          : "max-w-full bg-black"
+        className={`mx-auto ${scrolled
+          ? "max-w-4xl rounded-full border border-purple1/20 bg-black/70 shadow-[0_4px_16px_rgba(0,0,0,0.4),0_8px_40px_rgba(156,18,220,0.18),0_0_80px_rgba(156,18,220,0.06)] backdrop-blur-xl max-md:rounded-2xl max-md:bg-black/95"
+          : "max-w-full rounded-none border border-transparent bg-black shadow-none"
           }`}
-        style={{ transition: 'background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease' }}
+        style={{ transition: 'border-radius 0.5s cubic-bezier(0.4,0,0.2,1), background-color 0.5s cubic-bezier(0.4,0,0.2,1), border-color 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.5s cubic-bezier(0.4,0,0.2,1), backdrop-filter 0.5s cubic-bezier(0.4,0,0.2,1)' }}
       >
-        <div className={`mx-auto flex items-center justify-between transition-all duration-500 ${scrolled ? "h-12 px-5 max-sm:px-3" : "h-18 max-w-7xl px-6 max-sm:px-3"
-          }`}>
+        <div className={`mx-auto flex items-center justify-between ${scrolled ? "h-12 px-5 max-sm:px-3" : "h-18 max-w-7xl px-6 max-sm:px-3"
+          }`}
+          style={{ transition: 'height 0.6s cubic-bezier(0.4,0,0.2,1), padding 0.6s cubic-bezier(0.4,0,0.2,1)' }}>
           {/* Logo + Name */}
           <a
             href="#1"
