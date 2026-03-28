@@ -11,10 +11,10 @@ import python_svg from "./assets/python_white.svg";
 import pygame_svg from "./assets/pygmae.svg";
 import pymuch_svg from "./assets/pymuck.svg";
 import nlp_svg from "./assets/Nlp.svg";
-import uno_game from "./assets/uno_game.png";
-import punchy_earth from "./assets/puncyearth.png";
-import chat_app from "./assets/chatapp.png";
-import atv from "./assets/atv.png";
+import uno_game from "./assets/uno_game.webp";
+import punchy_earth from "./assets/puncyearth.webp";
+import chat_app from "./assets/chatapp.webp";
+import atv from "./assets/atv.webp";
 
 const ProjectPage = () => {
   return (

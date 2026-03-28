@@ -1,5 +1,5 @@
 import { TypeAnimation } from "react-type-animation";
-import logo3 from "./assets/OR.png";
+import logo3 from "./assets/OR.webp";
 import useOnScreen from "./utils/useOnScreen";
 import { useRef, useEffect, useState, lazy, Suspense, Component, type ErrorInfo, type ReactNode } from "react";
 import anime from "animejs";

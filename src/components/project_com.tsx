@@ -98,6 +98,8 @@ function Project(props: Props) {
               className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               src={props.image}
               alt={props.name}
+              loading="lazy"
+              decoding="async"
             />
             {/* Subtle overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-t from-pureBlack/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
