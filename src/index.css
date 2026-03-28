@@ -296,15 +296,14 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Smooth global theme transitions — only activate after first paint
-   to avoid layout/paint overhead on initial load */
-html.theme-ready body,
-html.theme-ready nav,
-html.theme-ready section,
-html.theme-ready div,
-html.theme-ready main,
-html.theme-ready header,
-html.theme-ready footer {
+/* Smooth global theme transitions */
+body,
+nav,
+section,
+div,
+main,
+header,
+footer {
   transition: var(--theme-transition);
 }
 

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import logo from "./assets/ORnew.webp";
+import logo from "./assets/ORnew.png";
 import NavBarButton from "./components/nav_bar_button_com";
 import ThemeToggle from "./components/ThemeToggle";
 

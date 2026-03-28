@@ -4,9 +4,16 @@ const ThemeToggle = () => {
     const { theme, toggleTheme } = useTheme();
     const isDark = theme === "dark";
 
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleTheme(e);
+    };
+
     return (
         <button
-            onClick={(e) => toggleTheme(e)}
+            onClick={handleClick}
+            type="button"
             aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
             className="theme-toggle-btn group relative flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
             style={{

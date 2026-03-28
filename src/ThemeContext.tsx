@@ -37,7 +37,20 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
         const nextTheme: Theme = theme === "dark" ? "light" : "dark";
 
-        // Wave starts from the CENTER of the toggle button, not the mouse position
+        // Detect mobile or reduced motion preference
+        const isMobile = window.innerWidth < 768;
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        // Skip heavy animation on mobile or if user prefers reduced motion
+        if (isMobile || prefersReducedMotion || !(document as any).startViewTransition) {
+            document.documentElement.classList.remove("dark", "light");
+            document.documentElement.classList.add(nextTheme);
+            setTheme(nextTheme);
+            isAnimating.current = false;
+            return;
+        }
+
+        // Wave starts from the CENTER of the toggle button
         let x = window.innerWidth / 2;
         let y = 80;
         if (e?.currentTarget) {
@@ -52,25 +65,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
             Math.max(y, window.innerHeight - y)
         );
 
-        // ── View Transition API: the Telegram-style approach ──
-        // 1. Browser screenshots the OLD theme (actual content)
-        // 2. We switch the DOM to the NEW theme inside the callback
-        // 3. Browser screenshots the NEW theme (actual content)
-        // 4. We animate ::view-transition-new(root) with an expanding circle clip
-        // → User sees real CONTENT in both themes, not a solid color.
-
-        if (!(document as any).startViewTransition) {
-            // Fallback for unsupported browsers: instant switch
-            document.documentElement.classList.remove("dark", "light");
-            document.documentElement.classList.add(nextTheme);
-            setTheme(nextTheme);
-            isAnimating.current = false;
-            return;
-        }
-
         const transition = (document as any).startViewTransition(() => {
-            // flushSync ensures React renders synchronously so the
-            // view transition captures the NEW state immediately
             flushSync(() => {
                 document.documentElement.classList.remove("dark", "light");
                 document.documentElement.classList.add(nextTheme);
