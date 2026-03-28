@@ -3,6 +3,40 @@
 @tailwind utilities;
 
 /* ══════════════════════════════════════════════════════════════
+   View Transition (Telegram-style circular wave)
+   ══════════════════════════════════════════════════════════════ */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/*
+  Dark→Light: new(root) expands over old(root) → new on top
+  Light→Dark: old(root) shrinks to reveal new(root) → old on top
+  We toggle z-index based on which theme the <html> is switching TO.
+  After the transition callback, <html> already has the NEW theme class.
+*/
+
+/* Default (switching TO light): new on top */
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+/* Switching TO dark: old on top (it shrinks to reveal dark underneath) */
+:root.dark::view-transition-old(root) {
+  z-index: 9999;
+}
+
+:root.dark::view-transition-new(root) {
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════════════════════════
    Theme CSS Variables (RGB triplets for Tailwind opacity support)
    ══════════════════════════════════════════════════════════════ */
 :root {
@@ -31,110 +65,193 @@
 
 /* ── Light Theme ─────────────────────────────────────────── */
 :root.light {
-  --color-bg-primary: 240 241 246;
-  /* #F0F1F6 */
-  --color-bg-secondary: 255 255 255;
-  /* #FFFFFF */
-  --color-surface: 232 233 240;
-  /* #E8E9F0 */
+  --color-bg-primary: 237 233 254;
+  /* #EDE9FE — soft lavender */
+  --color-bg-secondary: 245 243 255;
+  /* #F5F3FF — light purple-white */
+  --color-surface: 224 218 245;
+  /* #E0DAF5 — noticeable lavender */
 
-  --color-text-primary: 26 26 46;
-  /* #1A1A2E */
-  --color-text-secondary: 55 55 75;
-  /* #37374B */
-  --color-text-muted: 107 114 128;
-  /* #6B7280 */
+  --color-text-primary: 30 20 60;
+  /* #1E143C — deep purple-black */
+  --color-text-secondary: 58 46 90;
+  /* #3A2E5A — muted purple */
+  --color-text-muted: 100 90 130;
+  /* #645A82 — warm gray-purple */
 
-  /* Darker purple accent for readability on light bg */
-  --color-accent-soft: #8A0FC4;
+  /* Vibrant purple accent for readability on light bg */
+  --color-accent-soft: #7C3AED;
 }
 
 /* ── Light Theme — component overrides ────────────────────── */
 
-/* Cards get subtle shadows on light */
+/* Cards get richer lavender tints on light */
 :root.light .exp-card {
-  background: rgb(var(--color-bg-secondary) / 0.8);
-  border: 1px solid rgba(156, 18, 220, 0.1);
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
+  background: linear-gradient(135deg, rgba(245, 243, 255, 0.9) 0%, rgba(237, 233, 254, 0.8) 100%);
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  box-shadow: 0 2px 16px rgba(124, 58, 237, 0.08), 0 1px 6px rgba(0, 0, 0, 0.04);
 }
 
 :root.light .exp-card:hover {
-  box-shadow: 0 4px 24px rgba(156, 18, 220, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 32px rgba(124, 58, 237, 0.14), 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 :root.light .exp-card-inner {
   background: linear-gradient(165deg,
-      rgb(var(--color-bg-secondary) / 0.95) 0%,
-      rgb(var(--color-bg-secondary) / 1) 50%,
-      rgb(var(--color-bg-secondary) / 0.95) 100%);
+      rgba(245, 243, 255, 0.95) 0%,
+      rgba(237, 233, 254, 0.9) 50%,
+      rgba(245, 243, 255, 0.95) 100%);
 }
 
 :root.light .skill-card {
-  background: rgb(var(--color-bg-secondary) / 0.8);
-  border: 1px solid rgba(156, 18, 220, 0.08);
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
+  background: linear-gradient(135deg, rgba(245, 243, 255, 0.9) 0%, rgba(237, 233, 254, 0.8) 100%);
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  box-shadow: 0 2px 16px rgba(124, 58, 237, 0.08), 0 1px 6px rgba(0, 0, 0, 0.04);
 }
 
 :root.light .skill-card:hover {
-  box-shadow: 0 4px 24px rgba(156, 18, 220, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 32px rgba(124, 58, 237, 0.14), 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 :root.light .skill-card-inner {
   background: linear-gradient(160deg,
-      rgb(var(--color-bg-secondary) / 0.98) 0%,
-      rgb(var(--color-bg-secondary) / 1) 50%,
-      rgb(var(--color-bg-secondary) / 0.98) 100%);
+      rgba(245, 243, 255, 0.98) 0%,
+      rgba(237, 233, 254, 0.92) 50%,
+      rgba(245, 243, 255, 0.98) 100%);
 }
 
 :root.light .skill-chip {
-  background: rgb(var(--color-bg-secondary) / 0.9);
-  border: 1px solid rgba(156, 18, 220, 0.1);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  background: rgba(245, 243, 255, 0.95);
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  box-shadow: 0 1px 6px rgba(124, 58, 237, 0.06);
 }
 
 :root.light .skill-chip:hover {
-  background: rgba(156, 18, 220, 0.08);
-  box-shadow: 0 2px 12px rgba(156, 18, 220, 0.12);
+  background: rgba(124, 58, 237, 0.1);
+  box-shadow: 0 3px 16px rgba(124, 58, 237, 0.16);
 }
 
 :root.light .exp-badge {
-  background: rgba(156, 18, 220, 0.06);
-  border-color: rgba(156, 18, 220, 0.12);
+  background: rgba(124, 58, 237, 0.08);
+  border-color: rgba(124, 58, 237, 0.18);
 }
 
 :root.light .exp-project-card {
-  background: rgb(var(--color-bg-secondary) / 0.7);
-  border-color: rgba(156, 18, 220, 0.1);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  background: rgba(245, 243, 255, 0.8);
+  border-color: rgba(124, 58, 237, 0.12);
+  box-shadow: 0 1px 6px rgba(124, 58, 237, 0.06);
 }
 
 :root.light .exp-project-card:hover {
-  background: rgba(156, 18, 220, 0.06);
-  box-shadow: 0 2px 8px rgba(156, 18, 220, 0.08);
+  background: rgba(124, 58, 237, 0.08);
+  box-shadow: 0 3px 12px rgba(124, 58, 237, 0.12);
 }
 
 /* Light scrollbar */
 :root.light {
-  scrollbar-color: rgba(156, 18, 220, 0.35) rgba(240, 241, 246, 0.6);
+  scrollbar-color: rgba(124, 58, 237, 0.35) rgba(237, 233, 254, 0.6);
 }
 
 /* Project cards in light mode */
 :root.light .project-card {
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06), 0 1px 6px rgba(0, 0, 0, 0.04);
+  background: linear-gradient(135deg, rgba(245, 243, 255, 0.8) 0%, rgba(224, 218, 245, 0.6) 100%) !important;
+  border-color: rgba(124, 58, 237, 0.12) !important;
+  box-shadow: 0 2px 20px rgba(124, 58, 237, 0.08), 0 1px 6px rgba(0, 0, 0, 0.04);
 }
 
 :root.light .project-card:hover {
-  box-shadow: 0 8px 40px rgba(156, 18, 220, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 40px rgba(124, 58, 237, 0.15), 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 /* Typed animation box light mode */
 :root.light .type-animation-cursor::after {
-  color: #9C12DC !important;
+  color: #7C3AED !important;
 }
 
 /* Nav glass in light mode */
 :root.light nav {
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 16px rgba(124, 58, 237, 0.08);
+}
+
+/* Light mode ambient glows are purple-tinted */
+:root.light .bg-purple1\/5 {
+  background-color: rgba(124, 58, 237, 0.07) !important;
+}
+
+:root.light .bg-purple1\/10 {
+  background-color: rgba(124, 58, 237, 0.1) !important;
+}
+
+/* ── Light Theme — nav bar glass ─────────────────────────── */
+:root.light nav.rounded-full,
+:root.light nav.rounded-2xl {
+  background: rgba(245, 243, 255, 0.75) !important;
+  border-color: rgba(124, 58, 237, 0.12) !important;
+  box-shadow: 0 4px 24px rgba(124, 58, 237, 0.1), 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* ── Light Theme — footer richer background ──────────────── */
+:root.light footer {
+  background: linear-gradient(180deg, rgba(237, 233, 254, 1) 0%, rgba(224, 218, 245, 1) 100%) !important;
+}
+
+/* ── Light Theme — about section tags ────────────────────── */
+:root.light .about-tag {
+  background: rgba(124, 58, 237, 0.06) !important;
+  border-color: rgba(124, 58, 237, 0.15) !important;
+  color: rgba(58, 46, 90, 0.7) !important;
+}
+
+/* ── Light Theme — resume button ─────────────────────────── */
+:root.light .resume-btn {
+  color: #1E143C !important;
+}
+
+:root.light .resume-btn-inner {
+  background: rgba(245, 243, 255, 0.95) !important;
+}
+
+:root.light .resume-btn:hover .resume-btn-inner {
+  background: rgba(237, 233, 254, 0.85) !important;
+}
+
+/* ── Light Theme — typed animation box richer ────────────── */
+:root.light .border-purple1\/10.bg-purple1\/5 {
+  background: rgba(124, 58, 237, 0.06) !important;
+  border-color: rgba(124, 58, 237, 0.15) !important;
+}
+
+/* ── Light Theme — darken pastel purple SVG icons ─────────── */
+:root.light .contact-social-icon img,
+:root.light .contact-email-icon img {
+  filter: brightness(0.55) saturate(1.8);
+  transition: filter 0.5s ease;
+}
+
+:root.light .contact-social-icon:hover img,
+:root.light .contact-email-icon:hover img {
+  filter: brightness(0.45) saturate(2.2);
+}
+
+/* ── Light Theme — project source link icons ──────────────── */
+:root.light .project-card a img {
+  filter: brightness(0.55) saturate(1.8);
+  transition: filter 0.5s ease;
+}
+
+:root.light .project-card a:hover img {
+  filter: brightness(0.4) saturate(2.2);
+}
+
+/* ── Light Theme — tech icons in project cards need to be visible ── */
+:root.light .project-card .rounded-lg img {
+  filter: brightness(0.3) saturate(1.5);
+  transition: filter 0.5s ease;
+}
+
+/* ── Light Theme — skill chip icon stays visible on accent bg ─── */
+:root.light .skill-chip-icon svg {
+  color: rgb(var(--color-text-primary)) !important;
 }
 
 html {

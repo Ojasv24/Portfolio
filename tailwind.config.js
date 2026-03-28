@@ -26,7 +26,7 @@ export default {
       purple2: '#300566',
       purple3: '#B41992',
       purple4: 'var(--color-accent-soft)',
-      blue: '#eae9ee',
+      blue: '#EDE9FE',
       pink: "#B41992",
       orange: "#E17E08",
       green: { 400: "#4ade80" },

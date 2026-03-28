@@ -24,7 +24,7 @@ const NavBarButton = ({ name, id, isActive, onClick, mobile }: Props) => {
         <span
           className={`text-lg font-semibold transition-all duration-300 ${isActive
             ? "translate-x-1 text-purple4"
-            : "text-white/70 group-hover:translate-x-1 group-hover:text-white"
+            : "text-white2 group-hover:translate-x-1 group-hover:text-white"
             }`}
         >
           {name}
@@ -46,7 +46,7 @@ const NavBarButton = ({ name, id, isActive, onClick, mobile }: Props) => {
       <span
         className={`relative z-10 text-[15px] font-semibold tracking-wide transition-all duration-300 ${isActive
           ? "text-white"
-          : "text-white/60 group-hover:text-white/90"
+          : "text-white2 group-hover:text-white"
           }`}
       >
         {name}

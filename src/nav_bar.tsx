@@ -119,13 +119,13 @@ const NavBar = () => {
               href="https://drive.google.com/file/d/1hPxTgx7OJzkKe8BCOe8xkIR_rK2BqpYO/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
-              className={`group relative flex items-center gap-2 overflow-hidden rounded-full font-semibold text-pureWhite transition-all duration-500 animate-navFadeIn ${scrolled ? "px-4 py-1.5 text-sm" : "px-5 py-2.5"
+              className={`resume-btn group relative flex items-center gap-2 overflow-hidden rounded-full font-semibold text-pureWhite transition-all duration-500 animate-navFadeIn ${scrolled ? "px-4 py-1.5 text-sm" : "px-5 py-2.5"
                 }`}
               style={{ animationDelay: "700ms", animationFillMode: "both" }}
             >
               {/* Animated gradient border */}
               <span className="absolute inset-0 rounded-full bg-gradient-to-r from-purple1 via-purple3 to-purple1 bg-[length:200%_100%] p-[1.5px] transition-all duration-500 group-hover:bg-[length:100%_100%] group-hover:shadow-[0_0_24px_rgba(156,18,220,0.45)]" style={{ animation: 'borderShimmer 3s linear infinite' }}>
-                <span className="block h-full w-full rounded-full bg-pureBlack/90 backdrop-blur-xl transition-all duration-500 group-hover:bg-pureBlack/70" />
+                <span className="resume-btn-inner block h-full w-full rounded-full bg-pureBlack/90 backdrop-blur-xl transition-all duration-500 group-hover:bg-pureBlack/70" />
               </span>
               {/* Shimmer sweep */}
               <span className="absolute inset-0 -translate-x-full rounded-full bg-gradient-to-r from-transparent via-pureWhite/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />

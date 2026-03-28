@@ -209,7 +209,7 @@ const MainPage = () => {
             ref={typeRef}
             className="mt-2 flex items-baseline gap-2 rounded-xl border border-purple1/10 bg-purple1/5 px-5 py-3 backdrop-blur-md opacity-0 max-sm:px-3 max-sm:py-2"
           >
-            <span className="text-lg font-medium text-white/70 max-sm:text-sm">
+            <span className="text-lg font-medium text-white2 max-sm:text-sm">
               I build
             </span>
             <span className="bg-gradient-to-r from-pink to-orange bg-clip-text text-2xl font-bold text-transparent max-sm:text-base">

@@ -10,7 +10,7 @@ interface Props {
 
 const themeColors = {
     dark: { primary: "#0C1014", secondary: "#0C0C0C" },
-    light: { primary: "#F0F1F6", secondary: "#FFFFFF" },
+    light: { primary: "#EDE9FE", secondary: "#F5F3FF" },
 };
 
 const CurveSeparator = ({

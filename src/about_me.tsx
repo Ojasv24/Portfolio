@@ -85,7 +85,7 @@ const AboutME = () => {
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-10 lg:flex-row lg:gap-16">
         {/* left — bio */}
         <div className="about-text flex-1 opacity-0">
-          <p className="text-lg leading-relaxed text-white/90 sm:text-xl">
+          <p className="text-lg leading-relaxed text-white sm:text-xl">
             I'm{" "}
             <span className="bg-gradient-to-r from-purple3 via-purple1 to-purple4 bg-clip-text font-semibold text-transparent">
               Ojasv Rathore
@@ -96,7 +96,7 @@ const AboutME = () => {
             engines, and SLA compliance systems at scale.
           </p>
 
-          <p className="mt-5 text-base leading-relaxed text-white/60 sm:text-lg">
+          <p className="mt-5 text-base leading-relaxed text-white2/80 sm:text-lg">
             From designing real-time Redis caching pipelines to building custom
             order transformers and microservice architectures, my work directly
             impacts millions of daily orders. Awarded twice at the org level, I
@@ -110,7 +110,7 @@ const AboutME = () => {
               (t) => (
                 <span
                   key={t}
-                  className="about-tag rounded-full border border-purple1/15 bg-gray2/30 px-3 py-1 text-xs text-white/50 opacity-0"
+                  className="about-tag rounded-full border border-purple1/15 bg-gray2/30 px-3 py-1 text-xs text-gray opacity-0"
                 >
                   {t}
                 </span>
@@ -129,7 +129,7 @@ const AboutME = () => {
               <span className="bg-gradient-to-r from-purple3 to-purple4 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl">
                 {h.value}
               </span>
-              <span className="text-sm text-white/50">{h.label}</span>
+              <span className="text-sm text-gray">{h.label}</span>
             </div>
           ))}
         </div>

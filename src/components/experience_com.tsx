@@ -139,7 +139,7 @@ function ExperienceCard(props: Props) {
                                     <li
                                         key={index}
                                         className={
-                                            "exp-bullet flex items-start gap-3 text-base leading-relaxed text-white/90 transition-all duration-500 max-sm:text-sm " +
+                                            "exp-bullet flex items-start gap-3 text-base leading-relaxed text-white2 transition-all duration-500 max-sm:text-sm " +
                                             (isVisible
                                                 ? "translate-x-0 opacity-100"
                                                 : "translate-x-4 opacity-0")
@@ -195,7 +195,7 @@ function ExperienceCard(props: Props) {
                                                 {project.bullets.map((bullet, bIdx) => (
                                                     <li
                                                         key={bIdx}
-                                                        className="flex items-start gap-3 text-base leading-relaxed text-white/80 max-sm:text-sm"
+                                                        className="flex items-start gap-3 text-base leading-relaxed text-white2 max-sm:text-sm"
                                                     >
                                                         <span className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-purple4/50"></span>
                                                         <span>{bullet}</span>

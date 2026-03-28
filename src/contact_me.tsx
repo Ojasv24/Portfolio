@@ -16,13 +16,13 @@ const socials = [
     icon: github,
     link: "https://github.com/Ojasv24/",
     label: "GitHub",
-    color: "hover:border-white/50 hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]",
+    color: "hover:border-purple1/40 hover:shadow-[0_0_20px_rgba(156,18,220,0.2)]",
   },
   {
     icon: xIcon,
     link: "https://x.com/home",
     label: "X",
-    color: "hover:border-white/50 hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]",
+    color: "hover:border-purple1/40 hover:shadow-[0_0_20px_rgba(156,18,220,0.2)]",
   },
 ];
 
@@ -62,11 +62,11 @@ const ContactPage = () => {
 
             <div className="relative flex items-center gap-5 max-sm:flex-col max-sm:text-center">
               {/* Icon container */}
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-purple1/20 to-purple2/20 transition-all duration-500 group-hover:from-purple1/30 group-hover:to-purple3/30 group-hover:shadow-[0_0_20px_rgba(156,18,220,0.2)]">
+              <div className="contact-email-icon flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-purple1/20 to-purple2/20 transition-all duration-500 group-hover:from-purple1/30 group-hover:to-purple3/30 group-hover:shadow-[0_0_20px_rgba(156,18,220,0.2)]">
                 <img className="h-7 w-7" src={gmail} alt="Email" />
               </div>
               <div>
-                <p className="mb-1 text-sm font-medium text-white/40 transition-colors duration-300 group-hover:text-white/60">
+                <p className="mb-1 text-sm font-medium text-gray transition-colors duration-300 group-hover:text-white2">
                   Send me an email
                 </p>
                 <p className="text-2xl font-bold text-white transition-colors duration-300 group-hover:text-purple4 max-sm:text-lg">
@@ -74,7 +74,7 @@ const ContactPage = () => {
                 </p>
               </div>
               {/* Arrow */}
-              <div className="ml-auto text-white/20 transition-all duration-300 group-hover:translate-x-1 group-hover:text-purple4 max-sm:hidden">
+              <div className="ml-auto text-gray/50 transition-all duration-300 group-hover:translate-x-1 group-hover:text-purple4 max-sm:hidden">
                 <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
@@ -89,7 +89,7 @@ const ContactPage = () => {
             }`}
         >
           <div className="h-px flex-1 bg-gradient-to-r from-transparent to-purple1/15" />
-          <span className="text-xs font-medium uppercase tracking-[0.2em] text-white/30">
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray/70">
             or find me on
           </span>
           <div className="h-px flex-1 bg-gradient-to-l from-transparent to-purple1/15" />
@@ -106,7 +106,7 @@ const ContactPage = () => {
               href={social.link}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group relative flex h-16 w-16 items-center justify-center rounded-2xl border border-purple1/10 bg-gray2/30 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:bg-gray2/50 max-sm:h-14 max-sm:w-14 ${social.color}`}
+              className={`contact-social-icon group relative flex h-16 w-16 items-center justify-center rounded-2xl border border-purple1/10 bg-gray2/30 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:bg-gray2/50 max-sm:h-14 max-sm:w-14 ${social.color}`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               <img
@@ -115,7 +115,7 @@ const ContactPage = () => {
                 alt={social.label}
               />
               {/* Tooltip */}
-              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-gray2/60 px-2.5 py-1 text-xs font-medium text-white/70 opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100 max-sm:hidden">
+              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-gray2/80 px-2.5 py-1 text-xs font-medium text-white2 opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100 max-sm:hidden">
                 {social.label}
               </span>
             </a>
@@ -124,7 +124,7 @@ const ContactPage = () => {
 
         {/* Bottom message */}
         <p
-          className={`mt-16 text-center text-sm text-white/25 transition-all delay-500 duration-700 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+          className={`mt-16 text-center text-sm text-gray/60 transition-all delay-500 duration-700 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             }`}
         >
           Always open to interesting conversations and opportunities.
